@@ -3,17 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public class Room : MonoBehaviour
+namespace rpgkit
 {
-	public CinemachineVirtualCamera vcam;
-
-	public void Enter()
+	[RequireComponent(typeof(BoxCollider))]
+	public class Room : MonoBehaviour
 	{
-		vcam.Priority = 10;
-	}
+		public CinemachineVirtualCamera m_vcam;
 
-	public void Exit()
-	{
-		vcam.Priority = 0;
+		public void Enter()
+		{
+			m_vcam.Priority = 10;
+		}
+
+		public void Exit()
+		{
+			m_vcam.Priority = 0;
+		}
 	}
 }
+
+

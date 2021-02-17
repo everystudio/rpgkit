@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Cinemachine;
 
 namespace rpgkit {
     public class FieldManager : Singleton<FieldManager>
@@ -13,6 +14,9 @@ namespace rpgkit {
 
         public Button m_btnAction;
         public Button m_btnMenu;
+
+        public CinemachineVirtualCamera m_vcamMain;
+        public Room m_roomCurrent;
 
         private void Awake()
         {
@@ -68,10 +72,44 @@ namespace rpgkit {
             else if(Input.GetKeyDown(KeyCode.Z))
             {
             }
+        }
 
+        public void OnChangeScene(string _strSceneName)
+        {
+            Debug.Log(_strSceneName);
+
+            CinemachineVirtualCamera vcam = null;
+
+            Room[] rooms = GameObject.FindObjectsOfType<Room>();
+            Debug.Log(rooms.Length);
+            if( rooms.Length == 0)
+            {
+                vcam = GameObject.FindObjectOfType<Cinemachine.CinemachineVirtualCamera>();
+            }
+            else
+            {
+                foreach(Room r in rooms)
+                {
+                    r.m_vcam.Priority = 0;
+                    if( r.GetComponent<Collider>().bounds.Contains(m_unitCore.transform.position))
+                    {
+                        vcam = r.m_vcam;
+                    }
+                }
+                if( vcam == null)
+                {
+                    Debug.LogError("だめ");
+                }
+            }
+            vcam.Priority = 10;
+            vcam.Follow = m_unitCore.transform;
+            m_vcamMain = vcam;
         }
 
 
     }
+
+
+
 }
 

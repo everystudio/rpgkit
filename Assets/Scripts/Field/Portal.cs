@@ -2,29 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Portal : MonoBehaviour
+namespace rpgkit
 {
-	public string exitscene;
-	public string target_position_name;
-
-	public Portal targetPortal;
-
-	public Room setroom;
-	public GameObject exitpoint;
-
-	private void OnTriggerEnter2D(Collider2D collision)
+	public class Portal : MonoBehaviour
 	{
-		PlayerPrefs.SetString("target_position_name", target_position_name);
-		string result = PlayerPrefs.GetString("target_position_name");
+		public string exitscene;
+		public string target_position_name;
 
-		if ( collision.tag == "Player")
+		public Portal targetPortal;
+
+		public Room setroom;
+		public GameObject exitpoint;
+
+		private void OnTriggerEnter2D(Collider2D collision)
 		{
-			collision.gameObject.transform.position = 
-				targetPortal.exitpoint.transform.position;
+			PlayerPrefs.SetString("target_position_name", target_position_name);
+			string result = PlayerPrefs.GetString("target_position_name");
 
-			setroom.Exit();
-			targetPortal.setroom.Enter();
-			targetPortal.setroom.vcam.LookAt = collision.gameObject.transform;
+			if (collision.tag == "Player")
+			{
+				collision.gameObject.transform.position =
+					targetPortal.exitpoint.transform.position;
+
+				setroom.Exit();
+				targetPortal.setroom.Enter();
+				targetPortal.setroom.m_vcam.LookAt = collision.gameObject.transform;
+			}
 		}
 	}
+
 }
+
+

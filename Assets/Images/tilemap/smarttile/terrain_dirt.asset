@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6e4e4fc705376343a3e65b25d94f0e2, type: 3}
+  m_Name: terrain_dirt
+  m_EditorClassIdentifier: 
+  m_Sprites:
+  - {fileID: 2214051019963695798, guid: 7cadf60203131c84c94f1a1720fbd5b6, type: 3}
+  - {fileID: 3646810644807832990, guid: 7cadf60203131c84c94f1a1720fbd5b6, type: 3}
+  - {fileID: 2681033654742227112, guid: 7cadf60203131c84c94f1a1720fbd5b6, type: 3}
+  - {fileID: -8302789002169359311, guid: 7cadf60203131c84c94f1a1720fbd5b6, type: 3}
+  - {fileID: 5484466702260425336, guid: 7cadf60203131c84c94f1a1720fbd5b6, type: 3}
+  - {fileID: -8830801925567114379, guid: 7cadf60203131c84c94f1a1720fbd5b6, type: 3}
+  - {fileID: -8033496889047254725, guid: 7cadf60203131c84c94f1a1720fbd5b6, type: 3}
+  - {fileID: -1487924470384036657, guid: 7cadf60203131c84c94f1a1720fbd5b6, type: 3}
+  - {fileID: -2616576212969147984, guid: 7cadf60203131c84c94f1a1720fbd5b6, type: 3}
+  - {fileID: -2970557098749311568, guid: 7cadf60203131c84c94f1a1720fbd5b6, type: 3}
+  - {fileID: 5779670419385907659, guid: 7cadf60203131c84c94f1a1720fbd5b6, type: 3}
+  - {fileID: -5675624644827436138, guid: 7cadf60203131c84c94f1a1720fbd5b6, type: 3}
+  - {fileID: 5856294730207933666, guid: 7cadf60203131c84c94f1a1720fbd5b6, type: 3}
+  - {fileID: -3785619025365861423, guid: 7cadf60203131c84c94f1a1720fbd5b6, type: 3}
+  - {fileID: 886228751564891987, guid: 7cadf60203131c84c94f1a1720fbd5b6, type: 3}
+  m_layerIndex: 1

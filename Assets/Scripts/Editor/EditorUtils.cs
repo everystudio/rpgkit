@@ -52,6 +52,8 @@ namespace rpgkit {
 
         public System.Action onRepaint = delegate { };
 
+        public virtual void Show() { }
+
         public void RepaintIt() {
             Repaint();
             onRepaint.Invoke();

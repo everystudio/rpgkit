@@ -10,14 +10,16 @@ namespace rpgkit
 	{
 		public CinemachineVirtualCamera m_vcam;
 
-		public void Enter()
+		public void Enter(Transform _tf)
 		{
 			m_vcam.Priority = 10;
+			m_vcam.Follow = _tf;
 		}
 
 		public void Exit()
 		{
 			m_vcam.Priority = 0;
+			m_vcam.Follow = null;
 		}
 	}
 }

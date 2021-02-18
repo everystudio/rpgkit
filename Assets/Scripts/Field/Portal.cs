@@ -43,7 +43,7 @@ namespace rpgkit
 						m_portalTarget.m_ExitOffset.y, 0.0f);
 
 				m_roomExist.Exit();
-				m_portalTarget.RoomExist.Enter();
+				m_portalTarget.RoomExist.Enter(collision.transform);
 				//m_portalTarget.RoomExist.m_vcam.Follow = collision.gameObject.transform;
 			}
 		}

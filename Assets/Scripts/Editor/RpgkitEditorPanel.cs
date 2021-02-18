@@ -80,7 +80,6 @@ namespace rpgkit
 			EditorGUILayout.EndVertical();
 
 			EditorGUILayout.EndHorizontal();
-
 		}
 
 		void DrawTabs()
@@ -91,6 +90,11 @@ namespace rpgkit
 			{
 				editor = CreateInstance<UIAssistantEditor>();
 				editorRender = editor.OnInspectorGUI;
+			}
+			if (DrawTabButton("DataManager-Event"))
+			{
+				editor = CreateInstance<DataManagerEditorEvents>();
+				editorRender = editor.Show;
 			}
 		}
 

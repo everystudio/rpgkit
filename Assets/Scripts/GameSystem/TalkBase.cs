@@ -6,12 +6,16 @@ namespace rpgkit
 {
     public class TalkBase : MonoBehaviour
     {
-        public string message;
+        public List<string> message;
 
         public void Talk(Action _onFinished)
         {
             StartCoroutine(TalkManager.Instance.Talk(message, _onFinished));
         }
+
+
+
+
 
     }
 }

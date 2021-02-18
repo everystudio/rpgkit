@@ -23,7 +23,7 @@ namespace rpgkit
                     Destroy(gameObject);
                 }
             }
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
 	}
 }

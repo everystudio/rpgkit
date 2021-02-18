@@ -2,16 +2,31 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEditor;
 using System.Linq;
+using rpgkit;
 //using EditorUtils;
 
 [CustomEditor(typeof(UIAssistant))]
-public class UIAssistantEditor : Editor {
+public class UIAssistantEditor : MetaEditor {
 
     UIAssistant.Page edit = null;
 
+    public override Object FindTarget()
+    {
+        if( UIAssistant.Instance == null)
+        {
+            UIAssistant.Instance = FindObjectOfType<UIAssistant>();
+        }
+        return UIAssistant.Instance;
+    }
+
     public override void OnInspectorGUI() {
 
-        UIAssistant main = target as UIAssistant;
+        if (!metaTarget)
+        {
+            Debug.Log("notfound metatarget");
+            return;
+        }
+        UIAssistant main = (UIAssistant)metaTarget;
 
         Undo.RecordObject(main, "");
         Color defColor = GUI.color;
@@ -96,7 +111,6 @@ public class UIAssistantEditor : Editor {
             if (page.default_page)
             {
                 GUILayout.Label("DEFAULT", GUILayout.Width(80));
-
             }
             else
             {

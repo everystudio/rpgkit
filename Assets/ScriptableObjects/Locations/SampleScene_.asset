@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SampleScene_
   m_EditorClassIdentifier: 
   guid: 
-  scene: SampleScene
-  position: {x: 0.43, y: 0.75}
-  setterName: TL_SampleScene_(0.4, 0.8)
-  scenePath: Assets/Scenes/SampleScene.unity
+  scene: village
+  position: {x: 0.94, y: -12.92}
+  setterName: TL_village_(0.9, -12.9)
+  scenePath: Assets/Scenes/village.unity

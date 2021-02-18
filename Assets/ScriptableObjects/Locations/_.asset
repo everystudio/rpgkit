@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: _
   m_EditorClassIdentifier: 
   guid: 
-  scene: field2
+  scene: field1
   position: {x: 2.91, y: -5.2}
-  setterName: TL_field2_(2.9, -5.2)
-  scenePath: Assets/Scenes/field2.unity
+  setterName: TL_field1_(2.9, -5.2)
+  scenePath: Assets/Scenes/field1.unity

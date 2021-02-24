@@ -3312,12 +3312,84 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 95.8, y: 98.1, z: -0.5}
+  m_LocalPosition: {x: -12.5, y: 149.3, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &522087548
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 522087549}
+  - component: {fileID: 522087550}
+  m_Layer: 0
+  m_Name: SaveSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &522087549
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522087548}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1366752926}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &522087550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522087548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b30e42c5cd36784c991387df46a9262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  systemSettings:
+    hasUpdate: 0
+    hasFixedUpdate: 0
+    updateDelay: 3
+    fixedUpdateDelay: 0
+  cachedSaveData:
+    lastKnownSlotID: 0
+    lastKnownFilePath: 
+    lastScene: 
+    timePlayed:
+      seconds: 0
+      minutes: 0
+      hours: 0
+      days: 0
+    playerName: 
+    savedData: []
+  onGameSave: {fileID: 11400000, guid: 5689d62c245400844803b4dc1101071d, type: 2}
+  onGameLoad: {fileID: 11400000, guid: 1393430020ff9484abe73dbed586ba87, type: 2}
+  onChangeScene: {fileID: 11400000, guid: fb6c6467108bd84458c7c490bfd0a458, type: 2}
+  onTeleportStart: {fileID: 11400000, guid: b961da2d8979b2e48b34c8872ca31ea0, type: 2}
+  onTeleportEnd: {fileID: 11400000, guid: c76b9397989732240b8a388f82f36020, type: 2}
+  saveSlot:
+    UseConstant: 1
+    ConstantValue: 1
+    Variable: {fileID: 0}
+  playerName:
+    UseConstant: 1
+    ConstantValue: testplayername
+    Variable: {fileID: 0}
 --- !u!1 &560091520
 GameObject:
   m_ObjectHideFlags: 0
@@ -7581,6 +7653,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 810823642}
+  - {fileID: 522087549}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

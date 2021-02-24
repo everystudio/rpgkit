@@ -99,8 +99,6 @@ public class Saveable : MonoBehaviour
             {
                 saveIdentification.ConstantValue = (System.Guid.NewGuid().ToString());
             }
-
-
         }
         else
         {

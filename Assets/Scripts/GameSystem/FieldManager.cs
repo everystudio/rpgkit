@@ -25,7 +25,7 @@ namespace rpgkit {
                 FieldUnitSearcher fus = m_unitCore.GetComponent<FieldUnitSearcher>();
                 TalkBase tb = fus.m_talkTarget;
                 ChestBase cb = fus.m_chestTarget;
-                Debug.Log(tb);
+                //Debug.Log(tb);
                 if (tb != null)
                 {
                     m_btnAction.gameObject.SetActive(false);

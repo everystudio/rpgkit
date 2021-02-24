@@ -33,7 +33,7 @@ namespace rpgkit
 
 		private void open(bool _bIsOpen)
 		{
-			Debug.Log(_bIsOpen);
+			//Debug.Log(_bIsOpen);
 			m_Open.SetActive(_bIsOpen);
 			m_Close.SetActive(!_bIsOpen);
 		}

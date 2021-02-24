@@ -96,7 +96,7 @@ namespace rpgkit
 
         private void OnTeleportEnd(float obj)
         {
-            Debug.Log("teleportend");
+            //Debug.Log("teleportend");
             onGameLoad?.Invoke(cachedSaveData);
             Pause(false);
         }
@@ -125,7 +125,13 @@ namespace rpgkit
             SaveUtility.WriteSave(cachedSaveData, saveSlot.Value);
         }
 
-
+        public void ForceSave()
+        {
+            if (cachedSaveData != null)
+            {
+                onGameSave?.Invoke(cachedSaveData);
+            }
+        }
     }
 }
 

@@ -6,29 +6,31 @@ namespace rpgkit
 {
     public class DataManager : Singleton<DataManager>
     {
+        public TextAsset m_taMasterItem;
+
         public TextAsset m_taDataUnit;
         public TextAsset m_taDataItem;
         public TextAsset m_taDataSkill;
-        public TextAsset m_taMasterEvent;
+        public TextAsset m_taMasterFlag;
 
-        public MasterEvent m_masterEvent = new MasterEvent();
+        public MasterItem m_masterItem = new MasterItem();
+        public MasterFlag m_masterFlag = new MasterFlag();
 
         public DataUnit m_dataUnit = new DataUnit();
         public DataItem m_dataItem = new DataItem();
         public DataSkill m_dataSkill = new DataSkill();
-        public DataEvent m_dataEvent = new DataEvent();
-
-
+        public DataFlag m_dataFlag = new DataFlag();
 
         public override void Initialize()
         {
             base.Initialize();
+            m_masterItem.Load(m_taMasterItem);
+            m_masterFlag.Load(m_taMasterFlag);
 
             m_dataUnit.Load(m_taDataUnit);
             m_dataItem.Load(m_taDataItem);
             m_dataSkill.Load(m_taDataSkill);
 
-            m_masterEvent.Load(m_taMasterEvent);
 
         }
     }

@@ -5,61 +5,56 @@ using UnityEditor;
 
 namespace rpgkit
 {
-    [CustomEditor(typeof(EventManager))]
-    public class EventManagerEditor : MetaEditor
+    [CustomEditor(typeof(DataManager))]
+    public class DataManagerEditorFlag : MetaEditor
     {
         public override Object FindTarget()
         {
-            if (EventManager.Instance == null)
+            if (DataManager.Instance == null)
             {
-                EventManager.Instance = FindObjectOfType<EventManager>();
+                DataManager.Instance = FindObjectOfType<DataManager>();
             }
-            return EventManager.Instance;
+            return DataManager.Instance;
         }
-        public override void OnInspectorGUI()
+        public override void Show()
         {
             if (!metaTarget)
             {
                 Debug.Log("notfound metatarget");
                 return;
             }
-            EventManager main = (EventManager)metaTarget;
+            DataManager main = (DataManager)metaTarget;
 
             Undo.RecordObject(main, "");
             Color defColor = GUI.color;
 
-            #region Load
-            if (GUILayout.Button("AddDummy", GUILayout.Width(80)))
+            MasterFlag master_event = new MasterFlag();
+            if (main.m_taMasterFlag != null)
             {
+                master_event.Load(main.m_taMasterFlag);
             }
-
-            #endregion
 
             #region Event
             GUILayout.Label("Events", GUILayout.ExpandWidth(true));
-            /*
-            foreach( EventDataParam param in main.m_eventData.list)
+            foreach( MasterFlagParam param in master_event.list)
             {
                 EditorGUILayout.BeginHorizontal();
 
                 GUILayout.Label(
-                    param.event_serial.ToString(),
+                    param.id.ToString(),
                     EditorStyles.label, GUILayout.Width(10));
 
                 GUILayout.Label(
-                    param.event_name,
+                    param.name,
                     EditorStyles.label, GUILayout.Width(100));
 
                 EditorGUILayout.EndHorizontal();
             }
-            */
 
 
             #endregion
 
         }
-
-
     }
 }
 

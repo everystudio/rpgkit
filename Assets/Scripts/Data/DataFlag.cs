@@ -5,12 +5,12 @@ using csvutility;
 
 namespace rpgkit
 {
-    public class DataEventParam : CsvDataParam
+    public class DataFlagParam : CsvDataParam
     {
-        public int event_serial;
+        public int flag_id;
         public bool is_completed;
     }
-    public class DataEvent : CsvData<DataEventParam>
+    public class DataFlag : CsvData<DataFlagParam>
     {
 
     }

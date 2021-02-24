@@ -91,10 +91,20 @@ namespace rpgkit
 				editor = CreateInstance<UIAssistantEditor>();
 				editorRender = editor.OnInspectorGUI;
 			}
-			if (DrawTabButton("DataManager-Event"))
+			if (DrawTabButton("DataManager-Flag"))
 			{
-				editor = CreateInstance<DataManagerEditorEvents>();
+				editor = CreateInstance<DataManagerEditorFlag>();
 				editorRender = editor.Show;
+			}
+			if (DrawTabButton("SceneFlag"))
+			{
+				editor = CreateInstance<SceneFlagManagerEditor>();
+				editorRender = editor.OnInspectorGUI;
+			}
+			if (DrawTabButton("Chest"))
+			{
+				editor = CreateInstance<ChestManagerEditor>();
+				editorRender = editor.OnInspectorGUI;
 			}
 		}
 

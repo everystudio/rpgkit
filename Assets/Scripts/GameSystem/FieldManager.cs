@@ -22,7 +22,9 @@ namespace rpgkit {
         {
             m_btnAction.onClick.AddListener(() =>
             {
-                TalkBase tb = m_unitCore.GetComponent<FieldUnitSearcher>().m_talkTarget;
+                FieldUnitSearcher fus = m_unitCore.GetComponent<FieldUnitSearcher>();
+                TalkBase tb = fus.m_talkTarget;
+                ChestBase cb = fus.m_chestTarget;
                 Debug.Log(tb);
                 if (tb != null)
                 {
@@ -35,6 +37,10 @@ namespace rpgkit {
                         m_btnAction.gameObject.SetActive(true);
                         m_btnMenu.gameObject.SetActive(true);
                     }));
+                }
+                else if(cb != null)
+                {
+                    ChestManager.Instance.OpenChest(cb);
                 }
             });
 
@@ -76,12 +82,12 @@ namespace rpgkit {
 
         public void OnChangeScene(string _strSceneName)
         {
-            Debug.Log(_strSceneName);
+            //Debug.Log(_strSceneName);
 
             CinemachineVirtualCamera vcam = null;
 
             Room[] rooms = GameObject.FindObjectsOfType<Room>();
-            Debug.Log(rooms.Length);
+            //Debug.Log(rooms.Length);
             if( rooms.Length == 0)
             {
                 vcam = GameObject.FindObjectOfType<Cinemachine.CinemachineVirtualCamera>();

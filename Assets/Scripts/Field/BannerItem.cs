@@ -11,7 +11,10 @@ namespace rpgkit
         public TextMeshProUGUI m_txtItemName;
         public void Initialize(DataItemParam _param)
         {
-            m_txtItemName.text = _param.item_name;
+            MasterItemParam master = DataManager.Instance.m_masterItem.list
+                .Find((p => p.id == _param.id));
+
+            m_txtItemName.text = master.name;
         }
     }
 }

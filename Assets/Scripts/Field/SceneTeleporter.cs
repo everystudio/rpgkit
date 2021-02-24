@@ -55,10 +55,11 @@ namespace rpgkit
         {
             if( collision.tag == "Player")
             {
+                //Debug.Log(gameObject.name);
                 //SceneManager.LoadScene(Target.Scene);
                 if (Target != null)
                 {
-                    Debug.Log(Target);
+                    //Debug.Log(Target);
                     teleportRequest.Invoke(Target);
                 }
             }

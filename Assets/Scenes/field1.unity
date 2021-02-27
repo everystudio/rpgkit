@@ -1062,7 +1062,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6c7d6e3133f18b42b6468e482a84bc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: []
+  message:
+  - "\u306F\u306A\u3057\u3092\u3059\u308B"
+  - "\u8A71\u3092\u3059\u308B"
 --- !u!1 &811740314
 GameObject:
   m_ObjectHideFlags: 0
@@ -18897,7 +18899,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.7765363, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

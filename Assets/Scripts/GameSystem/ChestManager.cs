@@ -13,7 +13,7 @@ namespace rpgkit
         // 変なことしなくてもよくなったかも
         public void OnChangeScene(string _strSceneName)
         {
-            Debug.Log(_strSceneName);
+            //Debug.Log(_strSceneName);
             m_currentSceneChestArr = FindObjectsOfType<ChestBase>();
             /*
             foreach( ChestBase chest in m_currentSceneChestArr)

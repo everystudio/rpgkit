@@ -20,6 +20,13 @@ namespace rpgkit
 		public int hp_max;
 		public int tp_current;
 		public int tp_max;
+
+		public int attack;
+		public int defence;
+		public int speed;
+		public int mind;
+		public int wisdom;
+
 	}
 	public class DataUnit : CsvData<DataUnitParam>
 	{

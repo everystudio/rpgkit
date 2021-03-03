@@ -18,6 +18,8 @@ namespace rpgkit
 		public List<CardUnit> m_cardUnitList = new List<CardUnit>();
 		public DataUnitParamEvent OnDataUnitParam = new DataUnitParamEvent();
 
+		public EquipInfo testequipinfo;
+
 		public UnityEvent OnClose = new UnityEvent();
 
 		private void Awake()
@@ -46,6 +48,9 @@ namespace rpgkit
 					OnDataUnitParam.Invoke(value);
 				});
 			}
+
+			testequipinfo.Initialize(null, DataManager.Instance.m_masterEquip.list[0]);
+
 
 		}
 		private void OnDisable()

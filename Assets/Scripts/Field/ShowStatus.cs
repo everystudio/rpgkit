@@ -36,10 +36,10 @@ namespace rpgkit
 			m_goRoot.SetActive(true);
 
 			m_txtLevel.text = $"Level:{_unit.level}";
-			m_txtHP.text = $"HP:{_unit.hp_current}/{_unit.hp_max}";
-			m_txtTP.text = $"TP:{_unit.tp_current}/{_unit.tp_max}";
+			m_txtHP.text = $"HP:{_unit.hp_current}/{_unit.hp}";
+			m_txtTP.text = $"TP:{_unit.tp_current}/{_unit.tp}";
 			m_txtAttack.text = $"{_unit.attack}";
-			m_txtDefence.text = $"{_unit.defence}";
+			m_txtDefence.text = $"{_unit.defense}";
 			m_txtSpeed.text = $"{_unit.speed}";
 			m_txtMind.text = $"{_unit.mind}";
 			m_txtWisdom.text = $"{_unit.wisdom}";

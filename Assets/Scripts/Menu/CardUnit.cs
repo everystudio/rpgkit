@@ -40,9 +40,9 @@ namespace rpgkit
             m_txtName.text = _unit.unit_name;
             m_txtLevel.text = _unit.level.ToString();
             m_txtHPCurrent.text = _unit.hp_current.ToString();
-            m_txtHPMax.text = _unit.hp_max.ToString();
+            m_txtHPMax.text = _unit.hp.ToString();
             m_txtTPCurrent.text = _unit.tp_current.ToString();
-            m_txtTPMax.text = _unit.tp_max.ToString();
+            m_txtTPMax.text = _unit.tp.ToString();
         }
 
     }

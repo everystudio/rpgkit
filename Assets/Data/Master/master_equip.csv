@@ -1,0 +1,8 @@
+equip_id,equip_name,equip_type,price,attack,defense,speed,mind,wisdom,special1,special2
+1001,たんけん,knife,100,5,0,0,0,0,,
+2001,ぼうし,head,50,0,1,0,0,3,,
+3001,旅人の服,body,100,0,5,0,0,0,,
+4001,マント,cloak,70,0,3,1,0,0,,
+5001,グローブ,glove,70,2,2,0,0,0,,
+6001,ブーツ,boots,50,0,2,3,0,0,,
+7001,石のネックレス,necklace,50,0,0,0,3,1,,

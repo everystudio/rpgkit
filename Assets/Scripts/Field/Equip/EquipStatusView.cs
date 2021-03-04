@@ -28,14 +28,35 @@ namespace rpgkit
                 m_txtMind = _root.Find($"statusParamMind/{_strName}").GetComponent<TextMeshProUGUI>();
                 m_txtWisdom = _root.Find($"statusParamWisdom/{_strName}").GetComponent<TextMeshProUGUI>();
             }
+
+            public void Clear()
+            {
+                m_txtHP.text = "";
+                m_txtTP.text = "";
+                m_txtAttack.text = "";
+                m_txtDefense.text = "";
+                m_txtSpeed.text = "";
+                m_txtMind.text = "";
+                m_txtWisdom.text = "";
+            }
         }
         private ParamTextSet m_txtsetPrev;
         private ParamTextSet m_txtsetNext;
 
+        public void Clear()
+        {
+            m_txtsetPrev.SetComponent(transform.Find("paramRoot"), "params/txtPrev");
+            m_txtsetNext.SetComponent(transform.Find("paramRoot"), "params/txtNext");
+
+            m_txtsetPrev.Clear();
+            m_txtsetNext.Clear();
+
+        }
+
         public void Initialize(DataUnitParam _unit , DataUnitParam _change)
         {
-            _unit.RefreshAssist(DataManager.Instance.m_masterEquip.list);
-            _change.RefreshAssist(DataManager.Instance.m_masterEquip.list);
+            _unit.RefreshAssist(DataManager.Instance.m_masterEquip.list ,DataManager.Instance.m_dataEquip.list);
+            _change.RefreshAssist(DataManager.Instance.m_masterEquip.list, DataManager.Instance.m_dataEquip.list);
 
             m_txtsetPrev.SetComponent(transform.Find("paramRoot"), "params/txtPrev");
             m_txtsetNext.SetComponent(transform.Find("paramRoot"), "params/txtNext");
@@ -61,7 +82,7 @@ namespace rpgkit
             int iMind = _change.GetStatus("mind") - _unit.GetStatus("mind");
             int iWisdom = _change.GetStatus("wisdom") - _unit.GetStatus("wisdom");
 
-            int[] param_arr = new int[]
+            int[] param_diff_arr = new int[]
             {
                 iHP,
                 iTP,
@@ -71,6 +92,17 @@ namespace rpgkit
                 iMind,
                 iWisdom
             };
+            int[] param_after_arr = new int[]
+            {
+                _change.GetStatus("hp"),
+                _change.GetStatus("tp"),
+                _change.GetStatus("attack"),
+                _change.GetStatus("defense"),
+                _change.GetStatus("speed"),
+                _change.GetStatus("mind"),
+                _change.GetStatus("wisdom")
+            };
+
             TextMeshProUGUI[] tmp_arr = new TextMeshProUGUI[]
             {
                 m_txtsetNext.m_txtHP,
@@ -81,17 +113,16 @@ namespace rpgkit
                 m_txtsetNext.m_txtMind,
                 m_txtsetNext.m_txtWisdom,
             };
-            for( int i = 0; i < param_arr.Length; i++)
+            for( int i = 0; i < param_diff_arr.Length; i++)
             {
-                if( 0 < param_arr[i])
+                if( 0 < param_diff_arr[i])
                 {
-                    tmp_arr[i].text = param_arr[i].ToString();
-                    tmp_arr[i].color = Color.blue;
+                    tmp_arr[i].text = $"<color=blue>{param_after_arr[i]}(+{param_diff_arr[i].ToString()})</color>";
+                    //tmp_arr[i].color = Color.blue;
                 }
-                else if( param_arr[i] < 0)
+                else if(param_diff_arr[i] < 0)
                 {
-                    tmp_arr[i].text = param_arr[i].ToString();
-                    tmp_arr[i].color = Color.red;
+                    tmp_arr[i].text = $"<color=red>{param_after_arr[i]}({param_diff_arr[i].ToString()})</color>";
                 }
                 else
                 {

@@ -69,7 +69,7 @@ namespace rpgkit
 			return iRet;
 		}
 
-		public void RefreshAssist(List<MasterEquipParam> _equip_list)
+		public void RefreshAssist(List<MasterEquipParam> _master_list , List<DataEquipParam> _data_list)
 		{
 			int[] equip_arr = new int[]
 			{
@@ -82,9 +82,10 @@ namespace rpgkit
 			};
 			assist_param = new StatusParam();
 
-			foreach( int equip_id in equip_arr)
+			foreach( int equip_serial in equip_arr)
 			{
-				MasterEquipParam equip = _equip_list.Find(p => p.equip_id == equip_id);
+				DataEquipParam data = _data_list.Find(p => p.equip_serial == equip_serial);
+				MasterEquipParam equip = data == null ? null : _master_list.Find(p => p.equip_id == data.equip_id);
 				if( equip != null)
 				{
 					FieldInfo[] infoArr = assist_param.GetType().GetFields();

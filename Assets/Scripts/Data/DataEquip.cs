@@ -2,14 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using csvutility;
+using UnityEngine.Events;
 
 namespace rpgkit
 {
+
+	public class DataEquipEvent : UnityEvent<DataEquipParam>
+	{
+	}
+
 	public class DataEquipParam : CsvDataParam
 	{
 		public int equip_id;
-		public int equip_serial;
+		public string equip_type;	// 検索の都合
 
+		public int equip_serial;
 		public int equip_unit;      // 0でだれも装備してない
 	}
 

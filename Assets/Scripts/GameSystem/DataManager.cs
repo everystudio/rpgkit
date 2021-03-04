@@ -15,6 +15,7 @@ namespace rpgkit
         [SerializeField] private TextAsset m_taDataUnit;
         [SerializeField] private TextAsset m_taDataItem;
         [SerializeField] private TextAsset m_taDataSkill;
+        [SerializeField] private TextAsset m_taDataEquip;
 
         public MasterUnit m_masterUnit = new MasterUnit();
         public MasterItem m_masterItem = new MasterItem();
@@ -28,10 +29,12 @@ namespace rpgkit
         public DataItem m_dataItem = new DataItem();
         public DataSkill m_dataSkill = new DataSkill();
         public DataFlag m_dataFlag = new DataFlag();
+        public DataEquip m_dataEquip = new DataEquip();
 
         public override void Initialize()
         {
             base.Initialize();
+            m_masterUnit.Load(m_taMasterUnit);
             m_masterItem.Load(m_taMasterItem);
             m_masterEquip.Load(m_taMasterEquip);
             m_masterFlag.Load(m_taMasterFlag);
@@ -39,8 +42,13 @@ namespace rpgkit
             m_dataUnit.Load(m_taDataUnit);
             m_dataItem.Load(m_taDataItem);
             m_dataSkill.Load(m_taDataSkill);
+            m_dataEquip.Load(m_taDataEquip);
 
-            foreach( MasterEquipParam equip in m_masterEquip.list)
+            foreach (MasterUnitParam unit in m_masterUnit.list)
+            {
+                unit.so_unit_data = so_unit_list.Find(p => p.unit_id == unit.unit_id);
+            }
+            foreach ( MasterEquipParam equip in m_masterEquip.list)
             {
                 equip.so_equip = so_equip_list.Find(p => p.equip_id == equip.equip_id);
             }

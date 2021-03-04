@@ -2,17 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EquipList : MonoBehaviour
+namespace rpgkit
 {
-    // Start is called before the first frame update
-    void Start()
+    public class EquipList : MonoBehaviour
     {
-        
-    }
+        public GameObject m_prefBanner;
+        public Transform m_tfBannerRoot;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public DataEquipEvent OnDataEquip = new DataEquipEvent();
+
+        public void Clear()
+        {
+            m_prefBanner.SetActive(false);
+            RPGKitUtil.DeleteObjects<EquipBanner>(m_tfBannerRoot.gameObject);
+        }
+
+        public void Show(List<DataEquipParam> _list , string _strEquipType)
+        {
+            List<DataEquipParam> type_list = _list.FindAll(p => p.equip_type == _strEquipType);
+
+            foreach( DataEquipParam data in type_list)
+            {
+                EquipBanner banner = Instantiate(m_prefBanner, m_tfBannerRoot).GetComponent<EquipBanner>();
+                banner.gameObject.SetActive(true);
+
+                MasterEquipParam master = DataManager.Instance.m_masterEquip.list.Find(p => p.equip_id == data.equip_id);
+                banner.Initialize(master, data);
+                banner.OnclickDataEquip.AddListener((value) =>
+                {
+                    OnDataEquip.Invoke(value);
+                });
+
+            }
+        }
+
+
+
     }
 }
+
+

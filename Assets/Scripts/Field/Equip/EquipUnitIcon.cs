@@ -9,9 +9,11 @@ namespace rpgkit
     {
         public Button m_btn;
         public Image m_imgIcon;
+        public MasterUnitParam m_masterUnitParam;
 
         public void Initialize( MasterUnitParam _master)
         {
+            m_masterUnitParam = _master;
             m_imgIcon.sprite = _master.so_unit_data.face_icon;
         }
     }

@@ -1,0 +1,15 @@
+equip_id,equip_type,equip_serial,equip_unit
+1001,knife,1,0
+1001,knife,2,0
+2001,head,3,0
+2001,head,4,0
+3001,body,5,0
+3001,body,6,0
+4001,cloak,7,0
+4001,cloak,8,0
+5001,glove,9,0
+5001,glove,10,0
+6001,boots,11,0
+6001,boots,12,0
+7001,boots,13,0
+7001,boots,14,0

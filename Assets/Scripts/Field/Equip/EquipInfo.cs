@@ -30,7 +30,11 @@ namespace rpgkit
         public void Initialize( DataEquipParam _data , MasterEquipParam _master)
         {
             Clear();
-            m_txtEquipName.text = _master.equip_name;
+            m_txtEquipName.text = _master != null ? _master.equip_name : "なし";
+            if(_master== null)
+            {
+                return;
+            }
 
             FieldInfo[] infoArr = new StatusParam().GetType().GetFields();
             foreach( FieldInfo info in infoArr)

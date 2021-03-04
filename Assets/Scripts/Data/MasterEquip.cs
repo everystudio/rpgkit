@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using csvutility;
+using UnityEngine.Events;
 
 namespace rpgkit
 {
+    public class MasterEquipEvent : UnityEvent<MasterEquipParam>
+    {
+    }
 
 
     public class MasterEquipParam : StatusParam

@@ -39,6 +39,7 @@ namespace rpgkit
 		public int unit_id;
 		public string unit_name;
 		public int level;
+		public int position;
 
 		public int hp_current;
 		public int tp_current;

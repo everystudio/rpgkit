@@ -40,12 +40,12 @@ namespace rpgkit
         }
         public void Clear()
         {
-            equip1.Initialize(null, 0);
-            equip2.Initialize(null, 0);
-            equip3.Initialize(null, 0);
-            equip4.Initialize(null, 0);
-            equip5.Initialize(null, 0);
-            equip6.Initialize(null, 0);
+            equip1.Initialize(null, null, 0);
+            equip2.Initialize(null, null, 0);
+            equip3.Initialize(null, null, 0);
+            equip4.Initialize(null, null, 0);
+            equip5.Initialize(null, null, 0);
+            equip6.Initialize(null, null, 0);
         }
 
         public void Initialize(DataUnitParam _dataUnit , List<MasterEquipParam> _masterList , List<DataEquipParam> _dataList)
@@ -64,12 +64,12 @@ namespace rpgkit
             MasterEquipParam masterEquip5 = dataEquip5 == null ? null : _masterList.Find(p => p.equip_id == dataEquip5.equip_id);
             MasterEquipParam masterEquip6 = dataEquip6 == null ? null : _masterList.Find(p => p.equip_id == dataEquip6.equip_id);
 
-            equip1.Initialize(masterEquip1, 1);
-            equip2.Initialize(masterEquip2, 2);
-            equip3.Initialize(masterEquip3, 3);
-            equip4.Initialize(masterEquip4, 4);
-            equip5.Initialize(masterEquip5, 5);
-            equip6.Initialize(masterEquip6, 6);
+            equip1.Initialize(masterEquip1, dataEquip1,1);
+            equip2.Initialize(masterEquip2, dataEquip2,2);
+            equip3.Initialize(masterEquip3, dataEquip3,3);
+            equip4.Initialize(masterEquip4, dataEquip4,4);
+            equip5.Initialize(masterEquip5, dataEquip5,5);
+            equip6.Initialize(masterEquip6, dataEquip6,6);
         }
 
 

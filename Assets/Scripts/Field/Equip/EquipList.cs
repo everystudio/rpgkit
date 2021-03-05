@@ -11,10 +11,13 @@ namespace rpgkit
 
         public DataEquipEvent OnDataEquip = new DataEquipEvent();
 
+        public List<EquipBanner> m_equipBannerList = new List<EquipBanner>();
+
         public void Clear()
         {
             m_prefBanner.SetActive(false);
             RPGKitUtil.DeleteObjects<EquipBanner>(m_tfBannerRoot.gameObject);
+            m_equipBannerList.Clear();
         }
 
         public void Show(List<DataEquipParam> _list , string _strEquipType)
@@ -32,6 +35,7 @@ namespace rpgkit
                 {
                     OnDataEquip.Invoke(value);
                 });
+                m_equipBannerList.Add(banner);
 
             }
         }

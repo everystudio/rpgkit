@@ -28024,12 +28024,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ff253e3dde02e6b4ebbd0e3b9e6c4b87, type: 2}
   so_equip_list:
   - {fileID: 11400000, guid: 6d0410c3ad4941b40be4028f5a1c9d22, type: 2}
+  - {fileID: 11400000, guid: 49c8d097674786d4d8932b48fef12089, type: 2}
   - {fileID: 11400000, guid: 7cfcc8cec8a28c34f958ac270c7cff66, type: 2}
+  - {fileID: 11400000, guid: f86021d443110944fbcbe06ccd1d9d8f, type: 2}
   - {fileID: 11400000, guid: ae214f49cf2c8aa4b86744fcb99062dc, type: 2}
+  - {fileID: 11400000, guid: a930351756159b545a9ffd7a68cfc5fc, type: 2}
   - {fileID: 11400000, guid: 19a8cae17e719f64393126467f88cf18, type: 2}
+  - {fileID: 11400000, guid: 606a0e7e00113fc42b3847465ff751b0, type: 2}
   - {fileID: 11400000, guid: 6d88ef85145ee39468aca809182f1439, type: 2}
+  - {fileID: 11400000, guid: 43f2259d17d499c4c854be85575b3e32, type: 2}
   - {fileID: 11400000, guid: 2c4392cdfbc15aa4da7d0fe2b7880a4c, type: 2}
+  - {fileID: 11400000, guid: 9a1acd7e4d5c5f34f85ae77b5aaad930, type: 2}
   - {fileID: 11400000, guid: c11f942a3b207124ca72ddd2fdd418d5, type: 2}
+  - {fileID: 11400000, guid: 863fcee3f10f0344ab0c751c54f18d35, type: 2}
 --- !u!4 &2074309264
 Transform:
   m_ObjectHideFlags: 0

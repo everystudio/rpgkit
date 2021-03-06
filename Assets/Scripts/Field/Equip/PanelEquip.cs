@@ -136,7 +136,8 @@ namespace rpgkit
                     }
                     m_equipInfoCurrent.Initialize(m_dataEquipCurrent, masterEquipParam);
                     m_equipInfoChange.Clear();
-                    //Debug.Log($"<color=cyan>{equip_type}</color>");
+
+                    ResetStatusView();
 
                     m_btnRemove.interactable = m_dataEquipCurrent!=null;
 
@@ -157,7 +158,13 @@ namespace rpgkit
                     master = DataManager.Instance.m_masterEquip.list.Find(p => p.equip_id == m_dataEquipChange.equip_id);
                 }
 
-                if(data.equip_unit != 0 && data.equip_unit != m_dataUnitSelected.unit_id)
+                // ダミーの装備を変更
+                FieldInfo equipPosition = m_dummyUnit.GetType().GetField($"equip{m_iSelectingEquipIndex}");
+                equipPosition.SetValue(m_dummyUnit, data.equip_serial);
+                m_dummyUnit.RefreshAssist(DataManager.Instance.m_masterEquip.list, DataManager.Instance.m_dataEquip.list);
+                m_equipStatusView.Initialize(m_dataUnitSelected, m_dummyUnit);
+
+                if (data.equip_unit != 0 && data.equip_unit != m_dataUnitSelected.unit_id)
                 {
                     m_btnSet.interactable = false;
                 }

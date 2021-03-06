@@ -7,8 +7,8 @@ namespace rpgkit
 {
 	public class DataItemParam : CsvDataParam
 	{
-		public int id;
-		public int serial;
+		public int item_id;
+		public int item_serial;
 		public int order_number;
 
 	}
@@ -19,9 +19,9 @@ namespace rpgkit
 			int iRet = 1;
 			foreach( DataItemParam data in list)
 			{
-				if( iRet < data.serial)
+				if( iRet < data.item_serial)
 				{
-					iRet = data.serial + 1;
+					iRet = data.item_serial + 1;
 				}
 			}
 			return iRet;
@@ -29,8 +29,8 @@ namespace rpgkit
 		public void AddItem(MasterItemParam _master)
 		{
 			DataItemParam item = new DataItemParam();
-			item.id = _master.id;
-			item.serial = GetNewSerial();
+			item.item_id = _master.item_id;
+			item.item_serial = GetNewSerial();
 			list.Add(item);
 		}
 

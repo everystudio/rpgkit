@@ -11,6 +11,8 @@ namespace rpgkit
 
 		private List<BannerItem> m_itemBannerList = new List<BannerItem>();
 
+		[SerializeField]
+		private IntVariable m_iSelectingItemSerial;
 		private void Awake()
 		{
 			m_prefBannerItem.SetActive(false);
@@ -18,6 +20,12 @@ namespace rpgkit
 
 		private void OnEnable()
 		{
+			Show();
+		}
+
+		public void Show()
+		{
+			m_iSelectingItemSerial.Value = 0;
 			foreach (BannerItem banner in m_itemBannerList)
 			{
 				Destroy(banner.gameObject);
@@ -31,8 +39,13 @@ namespace rpgkit
 				BannerItem banner = objItem.GetComponent<BannerItem>();
 				banner.Initialize(data);
 				m_itemBannerList.Add(banner);
-			}
 
+				banner.OnBannerDataItem.AddListener((value) =>
+				{
+					m_iSelectingItemSerial.Value = value.item_serial;
+					UIAssistant.Instance.ShowPage("FieldMenuItemCheck");
+				});
+			}
 		}
 
 		private void OnDisable()

@@ -25,6 +25,15 @@ namespace rpgkit
 			m_prefUnitCard.SetActive(false);
 		}
 
+		public void SelectCardUnit( DataUnitParam _dataUnitParam)
+		{
+			foreach (CardUnit card in m_cardUnitList)
+			{
+				card.SelectCard(card.IsUnit(_dataUnitParam));
+			}
+
+		}
+
 		private void OnEnable()
 		{
 			foreach (CardUnit card in m_cardUnitList)
@@ -39,6 +48,7 @@ namespace rpgkit
 				objCard.SetActive(true);
 				CardUnit card = objCard.GetComponent<CardUnit>();
 				card.Initialize(unit_param);
+				card.SelectCard(false);
 				m_cardUnitList.Add(card);
 
 				card.m_onDataUnitParam.AddListener((value) =>

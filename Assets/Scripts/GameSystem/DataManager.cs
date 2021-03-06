@@ -24,6 +24,7 @@ namespace rpgkit
 
         public List<SOUnit> so_unit_list = new List<SOUnit>();
         public List<SOEquip> so_equip_list = new List<SOEquip>();
+        public List<SOItem> so_item_list = new List<SOItem>();
 
         public DataUnit m_dataUnit = new DataUnit();
         public DataItem m_dataItem = new DataItem();
@@ -51,6 +52,14 @@ namespace rpgkit
             foreach ( MasterEquipParam equip in m_masterEquip.list)
             {
                 equip.so_equip = so_equip_list.Find(p => p.equip_id == equip.equip_id);
+            }
+            foreach( MasterItemParam item in m_masterItem.list)
+            {
+                item.so_item = so_item_list.Find(p => p.item_id == item.item_id);
+            }
+
+            foreach( DataUnitParam unit in m_dataUnit.list) {
+                unit.RefreshAssist(m_masterEquip.list, m_dataEquip.list);
             }
 
             /*

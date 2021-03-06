@@ -1,6 +1,5 @@
-id,name
-1,ポーション
-2,パンっ！
-3,エーテル
-4,目玉焼き
-5,謎のアイテム
+item_id,item_name,field,battle,item_target,item_type,item_param,description,flavor
+1,ポーション,TRUE,TRUE,friendone,hpheal,30,味方一人のHPを少し回復する,
+2,エーテル,TRUE,TRUE,friendone,tpheal,10,味方一人のTPを少し回復する,
+3,パン,TRUE,TRUE,friendone,hungerheal,15,味方一人の満腹度を少し回復する,
+4,目玉焼き,TRUE,TRUE,friendone,hungerheal,30,味方一人の満腹度を少し回復する,

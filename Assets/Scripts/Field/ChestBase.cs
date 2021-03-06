@@ -52,7 +52,7 @@ namespace rpgkit
 		public MasterItemParam GetItem()
 		{
 			MasterItemParam master = DataManager.Instance.m_masterItem.list
-				.Find(p => p.id == item_id);
+				.Find(p => p.item_id == item_id);
 
 			if (master != null)
 			{

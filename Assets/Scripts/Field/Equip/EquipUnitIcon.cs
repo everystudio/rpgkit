@@ -16,6 +16,16 @@ namespace rpgkit
             m_masterUnitParam = _master;
             m_imgIcon.sprite = _master.so_unit_data.face_icon;
         }
+
+        public void Select(bool _bSelect)
+        {
+            GetComponent<Image>().color = _bSelect ? new Color(0.5f, 1.0f, 1.0f) : Color.white;
+        }
+
+        public void Select(MasterUnitParam _master)
+        {
+            Select(m_masterUnitParam == _master);
+        }
     }
 }
 

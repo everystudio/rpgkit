@@ -43,6 +43,10 @@ namespace rpgkit
                 m_goEquipUnitRoot.SetActive(false);
             }
         }
+        public void Select( bool _bSelect)
+        {
+            GetComponent<Image>().color = _bSelect ? new Color(0.5f, 1.0f, 1.0f) : Color.white;
+        }
         public void ShowIcon(DataUnitParam _unit)
         {
             if (m_goEquipUnitRoot != null)

@@ -10,6 +10,8 @@ namespace rpgkit
         public int unit_id;
         public Texture texture;
         public Sprite face_icon;
+        public Sprite unit_front;
+        public Sprite unit_left;
     }
 }
 

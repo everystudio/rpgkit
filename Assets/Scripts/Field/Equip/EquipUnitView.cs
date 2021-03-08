@@ -10,6 +10,8 @@ namespace rpgkit
 
         public UnityEventInt OnClickEquipIndex = new UnityEventInt();
 
+        public Image m_imgUnitFront;
+
         public EquipBanner equip1;
         public EquipBanner equip2;
         public EquipBanner equip3;
@@ -36,6 +38,8 @@ namespace rpgkit
 
                 });
             }
+            m_imgUnitFront.sprite = null;
+            m_imgUnitFront.enabled = false;
 
         }
         public void Clear()
@@ -50,6 +54,10 @@ namespace rpgkit
 
         public void Initialize(DataUnitParam _dataUnit , List<MasterEquipParam> _masterList , List<DataEquipParam> _dataList)
         {
+            MasterUnitParam masterUnit = DataManager.Instance.m_masterUnit.list.Find(p => p.unit_id == _dataUnit.unit_id);
+            m_imgUnitFront.enabled = true;
+            m_imgUnitFront.sprite = masterUnit.so_unit_data.unit_front;
+
             DataEquipParam dataEquip1 = _dataList.Find(p => p.equip_serial == _dataUnit.equip1);
             DataEquipParam dataEquip2 = _dataList.Find(p => p.equip_serial == _dataUnit.equip2);
             DataEquipParam dataEquip3 = _dataList.Find(p => p.equip_serial == _dataUnit.equip3);
@@ -70,6 +78,22 @@ namespace rpgkit
             equip4.Initialize(masterEquip4, dataEquip4,4);
             equip5.Initialize(masterEquip5, dataEquip5,5);
             equip6.Initialize(masterEquip6, dataEquip6,6);
+        }
+        public void Select( int _iIndex)
+        {
+            EquipBanner[] bannerArr = new EquipBanner[]
+            {
+                equip1,
+                equip2,
+                equip3,
+                equip4,
+                equip5,
+                equip6,
+            };
+            foreach( EquipBanner banner in bannerArr)
+            {
+                banner.Select(banner.Index == _iIndex);
+            }
         }
 
 

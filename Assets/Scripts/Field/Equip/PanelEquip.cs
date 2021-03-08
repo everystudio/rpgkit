@@ -111,6 +111,13 @@ namespace rpgkit
                     m_masterUnitSelected = DataManager.Instance.m_masterUnit.list.Find(p => p.unit_id == m_dataUnitSelected.unit_id);
 
                     ResetStatusView();
+                    m_equipList.Clear();
+
+                    foreach( EquipUnitIcon in_icon in m_equipUnitIconList)
+                    {
+                        in_icon.Select(icon.m_masterUnitParam);
+                    }
+                    m_equipUnitView.Select(0);
                 });
             }
             #endregion
@@ -120,7 +127,7 @@ namespace rpgkit
             {
                 m_iSelectingEquipIndex = value;
                 m_btnSet.interactable = false;
-
+                m_equipUnitView.Select(value);
                 if (0 < value)
                 {
                     FieldInfo fieldEquipType = m_masterUnitSelected.GetType().GetField($"equip_type{value}");
@@ -216,6 +223,7 @@ namespace rpgkit
                         .Find(p => p.unit_id == party_unit_list[i].unit_id);
                     m_equipUnitIconList[i].gameObject.SetActive(true);
                     m_equipUnitIconList[i].Initialize(master);
+                    m_equipUnitIconList[i].Select(false);
                 }
                 else
                 {

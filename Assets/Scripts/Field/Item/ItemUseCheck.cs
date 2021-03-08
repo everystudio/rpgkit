@@ -117,7 +117,7 @@ namespace rpgkit
                 }
             }
             DataManager.Instance.m_dataItem.list.Remove(m_dataItemParam);
-            m_itemList.Show();
+            m_itemList.ShowItem();
             m_btnCancel.onClick.Invoke();
         }
     }

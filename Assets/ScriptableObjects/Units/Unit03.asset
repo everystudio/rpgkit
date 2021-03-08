@@ -15,3 +15,5 @@ MonoBehaviour:
   unit_id: 3
   texture: {fileID: 2800000, guid: 54980d41ee27b13489932b593a099e21, type: 3}
   face_icon: {fileID: 21300000, guid: 27c3b2b669c6a114aa753dc20f11b4f0, type: 3}
+  unit_front: {fileID: 21300000, guid: 0d912295605a9da41bf3193fe0b97ff2, type: 3}
+  unit_left: {fileID: 21300000, guid: 231b8df4b5022d946ba91240961e7d99, type: 3}

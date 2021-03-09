@@ -12,7 +12,11 @@ namespace rpgkit
     }
     public class DataFlag : CsvData<DataFlagParam>
     {
-
+        public bool Check( int _iFlagId)
+        {
+            DataFlagParam flag = list.Find(p => p.flag_id == _iFlagId);
+            return flag != null ? flag.is_completed : false;
+        }
     }
 
 }

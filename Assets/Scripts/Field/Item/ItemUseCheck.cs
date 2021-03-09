@@ -50,8 +50,10 @@ namespace rpgkit
 
             m_btnUse.gameObject.SetActive(m_masterItemParam.field);
 
+            m_txtDescription.text = m_masterItemParam.description;
+
             // 味方全体の場合はいきなり使うボタンが押せる
-            if( m_masterItemParam.item_target == "friendall")
+            if ( m_masterItemParam.item_target == "friendall")
             {
                 m_btnUse.interactable = true;
             }
@@ -119,6 +121,11 @@ namespace rpgkit
             DataManager.Instance.m_dataItem.list.Remove(m_dataItemParam);
             m_itemList.ShowItem();
             m_btnCancel.onClick.Invoke();
+
+            foreach( CardUnit card in m_fieldMenu.m_cardUnitList)
+            {
+                card.RefreshParam();
+            }
         }
     }
 }

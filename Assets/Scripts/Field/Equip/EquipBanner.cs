@@ -25,6 +25,9 @@ namespace rpgkit
         private DataEquipParam m_dataEquipParam;
         public DataEquipParam dataEquipParam => m_dataEquipParam;
 
+        [SerializeField]
+        private Image m_imgSelectImage;
+
         public UnityEventInt OnClickIndex = new UnityEventInt();
         public MasterEquipEvent OnClickEquip = new MasterEquipEvent();
         public DataEquipEvent OnclickDataEquip = new DataEquipEvent();
@@ -45,7 +48,14 @@ namespace rpgkit
         }
         public void Select( bool _bSelect)
         {
-            GetComponent<Image>().color = _bSelect ? new Color(0.5f, 1.0f, 1.0f) : Color.white;
+            if(m_imgSelectImage != null)
+            {
+                m_imgSelectImage.color = _bSelect ? new Color(0.5f, 1.0f, 1.0f) : Color.white;
+            }
+            else
+            {
+                GetComponent<Image>().color = _bSelect ? new Color(0.5f, 1.0f, 1.0f) : Color.white;
+            }
         }
         public void ShowIcon(DataUnitParam _unit)
         {

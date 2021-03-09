@@ -53,14 +53,16 @@ namespace rpgkit
                 });
             }
             m_txtName.text = m_masterUnitParam.unit_name;
-            m_txtLevel.text = _unit.level.ToString();
-            m_txtHPCurrent.text = _unit.hp_current.ToString();
-            m_txtHPMax.text = _unit.hp.ToString();
-            m_txtTPCurrent.text = _unit.tp_current.ToString();
-            m_txtTPMax.text = _unit.tp.ToString();
-
+            RefreshParam();
             m_imgIcon.sprite = m_masterUnitParam.so_unit_data.unit_left;
-
+        }
+        public void RefreshParam()
+        {
+            m_txtLevel.text = m_dataUnit.level.ToString();
+            m_txtHPCurrent.text = m_dataUnit.hp_current.ToString();
+            m_txtHPMax.text = m_dataUnit.hp.ToString();
+            m_txtTPCurrent.text = m_dataUnit.tp_current.ToString();
+            m_txtTPMax.text = m_dataUnit.tp.ToString();
         }
 
     }

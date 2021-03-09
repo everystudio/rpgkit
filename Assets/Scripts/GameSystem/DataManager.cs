@@ -16,6 +16,7 @@ namespace rpgkit
         [SerializeField] private TextAsset m_taDataItem;
         [SerializeField] private TextAsset m_taDataSkill;
         [SerializeField] private TextAsset m_taDataEquip;
+        [SerializeField] private TextAsset m_taDataFlag;
 
         public MasterUnit m_masterUnit = new MasterUnit();
         public MasterItem m_masterItem = new MasterItem();
@@ -44,6 +45,7 @@ namespace rpgkit
             m_dataItem.Load(m_taDataItem);
             m_dataSkill.Load(m_taDataSkill);
             m_dataEquip.Load(m_taDataEquip);
+            m_dataFlag.Load(m_taDataFlag);
 
             foreach (MasterUnitParam unit in m_masterUnit.list)
             {

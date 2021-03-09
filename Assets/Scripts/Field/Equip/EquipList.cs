@@ -34,6 +34,11 @@ namespace rpgkit
                 banner.OnclickDataEquip.AddListener((value) =>
                 {
                     OnDataEquip.Invoke(value);
+
+                    foreach( EquipBanner b in m_equipBannerList)
+                    {
+                        b.Select(b.dataEquipParam == value);
+                    }
                 });
                 m_equipBannerList.Add(banner);
 

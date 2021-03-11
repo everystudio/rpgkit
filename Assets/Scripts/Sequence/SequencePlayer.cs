@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using System;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -51,43 +52,38 @@ namespace sequence
             }
             if (AutoPlayOnStart && Application.isPlaying)
             {
-                PlaySequences();
+                StartCoroutine( PlaySequences(()=>
+                {
+                    Debug.Log("PlaySequences Finished");
+                }));
             }
         }
 
-        public virtual void PlaySequences()
+        public virtual IEnumerator PlaySequences(Action _onFinished)
         {
-            PlayFeedbacksInternal(this.transform.position, 1.0f);
+            yield return PlayFeedbacksInternal(this.transform.position, 1.0f , _onFinished);
         }
 
-        protected virtual void PlayFeedbacksInternal(Vector3 position, float attenuation)
+        protected virtual IEnumerator PlayFeedbacksInternal(Vector3 position, float attenuation, Action _onFinished)
         {
             if (!this.isActiveAndEnabled)
             {
-                return;
+                yield break;
             }
-
-            /*
-            if (!GlobalMMFeedbacksActive)
-            {
-                return;
-            }
-            */
 
             _startTime = Time.time;
             _holdingMax = 0f;
             _lastStartAt = _startTime;
 
             ResetSequences();
-
             bool pauseFound = false;
             for (int i = 0; i < Sequences.Count; i++)
             {
-                if ((Sequences[i].Pause != null) && (Sequences[i].Active))
+                if ((Sequences[i].Pause != null) && (Sequences[i].Config.Active))
                 {
                     pauseFound = true;
                 }
-                if ((Sequences[i].HoldingPause == true) && (Sequences[i].Active))
+                if ((Sequences[i].HoldingPause == true) && (Sequences[i].Config.Active))
                 {
                     pauseFound = true;
                 }
@@ -98,13 +94,15 @@ namespace sequence
                 IsPlaying = true;
                 for (int i = 0; i < Sequences.Count; i++)
                 {
-                    Sequences[i].Play(position, attenuation);
+                    yield return StartCoroutine(Sequences[i].Play(position, attenuation));
                 }
             }
             else
             {
                 StartCoroutine(PausedFeedbacksCo(position, attenuation));
             }
+            // とりあえず
+            _onFinished.Invoke();
         }
 
         protected virtual IEnumerator PausedFeedbacksCo(Vector3 position, float attenuation)
@@ -112,7 +110,7 @@ namespace sequence
             IsPlaying = true;
             for (int i = 0; i < Sequences.Count; i++)
             {
-                if ((Sequences[i].Active)
+                if ((Sequences[i].Config.Active)
                     && ((Sequences[i].HoldingPause == true) || (Sequences[i].LooperPause == true)))
                 {
                     while (Time.time - _lastStartAt < _holdingMax)
@@ -127,13 +125,13 @@ namespace sequence
                 Sequences[i].Play(position, attenuation);
 
                 if ((Sequences[i].Pause != null)
-                    && (Sequences[i].Active))
+                    && (Sequences[i].Config.Active))
                 {
                     bool shouldPause = true;
-                    if (Sequences[i].Chance < 100)
+                    if (Sequences[i].Config.Chance < 100)
                     {
-                        float random = Random.Range(0f, 100f);
-                        if (random > Sequences[i].Chance)
+                        float random = UnityEngine.Random.Range(0f, 100f);
+                        if (random > Sequences[i].Config.Chance)
                         {
                             shouldPause = false;
                         }
@@ -147,7 +145,7 @@ namespace sequence
                     }
                 }
 
-                if (Sequences[i].Active)
+                if (Sequences[i].Config.Active)
                 {
                     if (Sequences[i].Pause == null)
                     {
@@ -157,7 +155,7 @@ namespace sequence
                 }
 
                 if ((Sequences[i].LooperPause == true)
-                    && (Sequences[i].Active)
+                    && (Sequences[i].Config.Active)
                     && (((Sequences[i] as SequenceLooper).NumberOfLoopsLeft > 0) || (Sequences[i] as SequenceLooper).InInfiniteLoop))
                 {
                     bool loopAtLastPause = (Sequences[i] as SequenceLooper).LoopAtLastPause;
@@ -172,14 +170,14 @@ namespace sequence
                         }
                         if ((Sequences[j].Pause != null)
                             && (Sequences[j].SequenceDuration > 0f)
-                            && loopAtLastPause && (Sequences[j].Active))
+                            && loopAtLastPause && (Sequences[j].Config.Active))
                         {
                             newi = j;
                             break;
                         }
                         if ((Sequences[j].LooperStart == true)
                             && loopAtLastLoopStart
-                            && (Sequences[j].Active))
+                            && (Sequences[j].Config.Active))
                         {
                             newi = j;
                             break;

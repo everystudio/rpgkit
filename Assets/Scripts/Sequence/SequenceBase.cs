@@ -4,17 +4,22 @@ using UnityEngine;
 
 namespace sequence
 {
+    [System.Serializable]
+    public class SequenceConfig
+    {
+        public bool Active = true;
+        [Range(0, 100)]
+        public float Chance = 100f;
+    }
     [AddComponentMenu("")]
     [System.Serializable]
     public abstract class SequenceBase : MonoBehaviour
     {
-        public bool Active = true;
+        [HideInInspector]
         public string Label = "Sequence Base";
-        [Range(0, 100)]
-        public float Chance = 100f;
-
         public GameObject Owner { get; set; }
         protected bool _initialized = false;
+        public SequenceConfig Config;
         public SequenceTiming Timing;
         protected float _lastPlayTimestamp = -1f;
         protected int _playsLeft;
@@ -89,11 +94,11 @@ namespace sequence
             CustomReset();
         }
 
-        public virtual void Play(Vector3 position, float attenuation = 1.0f)
+        public virtual IEnumerator Play(Vector3 position, float attenuation = 1.0f)
         {
-            if (!Active)
+            if (!Config.Active)
             {
-                return;
+                yield break;
             }
 
             if (!_initialized)
@@ -104,7 +109,7 @@ namespace sequence
             // we check the cooldown
             if (InCooldown)
             {
-                return;
+                yield break;
             }
 
             if (Timing.InitialDelay > 0f)
@@ -113,8 +118,9 @@ namespace sequence
             }
             else
             {
+                // 基本はここ
                 _lastPlayTimestamp = SequenceTime;
-                RegularPlay(position, attenuation);
+                yield return StartCoroutine(RegularPlay(position, attenuation));
             }
         }
 
@@ -122,34 +128,38 @@ namespace sequence
         {
             yield return _initialDelayWaitForSeconds;
             _lastPlayTimestamp = SequenceTime;
-            RegularPlay(position, attenuation);
+            StartCoroutine(RegularPlay(position, attenuation));
         }
 
-        protected virtual void RegularPlay(Vector3 position, float attenuation = 1.0f)
+        protected virtual IEnumerator RegularPlay(Vector3 position, float attenuation = 1.0f)
         {
-            if (Chance == 0f)
+            if (Config.Chance == 0f)
             {
-                return;
+                yield break;
             }
-            if (Chance != 100f)
+            if (Config.Chance != 100f)
             {
                 // determine the odds
                 float random = Random.Range(0f, 100f);
-                if (random > Chance)
+                if (random > Config.Chance)
                 {
-                    return;
+                    yield break;
                 }
             }
 
             if (Timing.RepeatForever)
             {
                 _infinitePlayCoroutine = StartCoroutine(InfinitePlay(position, attenuation));
-                return;
+                yield break;
             }
-            if (Timing.NumberOfRepeats > 0)
+            else if (Timing.NumberOfRepeats > 0)
             {
                 _repeatedPlayCoroutine = StartCoroutine(RepeatedPlay(position, attenuation));
-                return;
+                yield break;
+            }
+            else
+            {
+                yield return CustomPlaySequence(position, attenuation);
             }
 
         }
@@ -193,7 +203,7 @@ namespace sequence
         }
 
         protected virtual void CustomInitialization(GameObject owner) { }
-        protected abstract void CustomPlaySequence(Vector3 position, float attenuation = 1.0f);
+        protected abstract IEnumerator CustomPlaySequence(Vector3 position, float attenuation = 1.0f);
         protected virtual void CustomReset() { }
         protected virtual void CustomStopSequence(Vector3 position, float attenuation = 1.0f) { }
 

@@ -200,7 +200,7 @@ namespace sequence
             EditorGUILayout.PropertyField(_mmfeedbacksSafeMode);
 
             // Draw list
-            SequenceStyle.DrawSection("Feedbacks");
+            SequenceStyle.DrawSection("Sequences");
 
             for (int i = 0; i < _mmfeedbacks.arraySize; i++)
             {
@@ -246,7 +246,7 @@ namespace sequence
 
                 Rect headerRect = SequenceStyle.DrawHeader(
                         ref isExpanded,
-                        ref feedback.Active,
+                        ref feedback.Config.Active,
                         label,
                         feedback.FeedbackColor,
                         (GenericMenu menu) =>
@@ -319,7 +319,7 @@ namespace sequence
                 property.isExpanded = isExpanded;
                 if (isExpanded)
                 {
-                    EditorGUI.BeginDisabledGroup(!feedback.Active);
+                    EditorGUI.BeginDisabledGroup(!feedback.Config.Active);
 
                     string helpText = SequenceHelpAttribute.GetSequenceHelpText(feedback.GetType());
                     if (!string.IsNullOrEmpty(helpText))
@@ -473,7 +473,7 @@ namespace sequence
                 }
                 if (GUILayout.Button("Play", EditorStyles.miniButtonMid))
                 {
-                    (target as SequencePlayer).PlaySequences();
+                    //(target as SequencePlayer).PlaySequences();
                 }
                 if (GUILayout.Button("Stop", EditorStyles.miniButtonMid))
                 {

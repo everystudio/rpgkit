@@ -791,6 +791,7 @@ GameObject:
   m_Component:
   - component: {fileID: 324491532}
   - component: {fileID: 324491531}
+  - component: {fileID: 324491535}
   - component: {fileID: 324491533}
   m_Layer: 0
   m_Name: GameObject
@@ -812,10 +813,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sequences:
+  - {fileID: 324491535}
   - {fileID: 324491533}
   InitializationMode: 2
   SafeMode: 3
-  AutoPlayOnStart: 0
+  AutoPlayOnStart: 1
 --- !u!4 &324491532
 Transform:
   m_ObjectHideFlags: 0
@@ -839,12 +841,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 324491530}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c83451e174153784b95d3650f492cfaa, type: 3}
+  m_Script: {fileID: 11500000, guid: e84f647ae5bf8f9439bdb663f78f4c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Active: 1
-  Label: SequencePause
-  Chance: 100
+  Label: Log
+  Config:
+    Active: 1
+    Chance: 100
   Timing:
     TimescaleMode: 0
     InitialDelay: 0
@@ -852,7 +855,33 @@ MonoBehaviour:
     NumberOfRepeats: 0
     RepeatForever: 0
     DelayBetweenRepeats: 1
-  PauseDuration: 1
+  DebugLogMode: 1
+  DebugMessage: 
+--- !u!114 &324491535
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324491530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e84f647ae5bf8f9439bdb663f78f4c28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Label: Log
+  Config:
+    Active: 1
+    Chance: 100
+  Timing:
+    TimescaleMode: 0
+    InitialDelay: 0
+    CooldownDuration: 0
+    NumberOfRepeats: 0
+    RepeatForever: 0
+    DelayBetweenRepeats: 1
+  DebugLogMode: 1
+  DebugMessage: "\u307F\u3063\u3064\u3081"
 --- !u!1001 &508515289
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18811,6 +18840,107 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 804e8d1cfb4e1f146bf248c14d2fb9bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1010846271
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1010846274}
+  - component: {fileID: 1010846273}
+  - component: {fileID: 1010846272}
+  - component: {fileID: 1010846275}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1010846272
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010846271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18545a62a79797541b684c4fdacd51e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Label: SetActive
+  Config:
+    Active: 1
+    Chance: 100
+  Timing:
+    TimescaleMode: 0
+    InitialDelay: 0
+    CooldownDuration: 0
+    NumberOfRepeats: 0
+    RepeatForever: 0
+    DelayBetweenRepeats: 1
+  Target: {fileID: 785460321}
+  SetFlag: 0
+--- !u!114 &1010846273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010846271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86a15427837270649931d60498773637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sequences:
+  - {fileID: 1010846272}
+  - {fileID: 1010846275}
+  InitializationMode: 2
+  SafeMode: 3
+  AutoPlayOnStart: 1
+--- !u!4 &1010846274
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010846271}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.1599252, y: 1.1256626, z: -0.31765273}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1010846275
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010846271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18545a62a79797541b684c4fdacd51e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Label: SetActive
+  Config:
+    Active: 1
+    Chance: 100
+  Timing:
+    TimescaleMode: 0
+    InitialDelay: 0
+    CooldownDuration: 0
+    NumberOfRepeats: 0
+    RepeatForever: 0
+    DelayBetweenRepeats: 1
+  Target: {fileID: 912770456}
+  SetFlag: 0
 --- !u!1 &1084781271
 GameObject:
   m_ObjectHideFlags: 0

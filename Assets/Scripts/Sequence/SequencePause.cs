@@ -12,11 +12,11 @@ namespace sequence
         [Header("Pause")]
         public float PauseDuration = 1f;
 
-        protected override void CustomPlaySequence(Vector3 position, float attenuation = 1.0f)
+        protected override IEnumerator CustomPlaySequence(Vector3 position, float attenuation = 1.0f)
         {
-            if (Active)
+            if (Config.Active)
             {
-                StartCoroutine(PlayPause());
+                yield return StartCoroutine(PlayPause());
             }
         }
         protected virtual IEnumerator PlayPause()

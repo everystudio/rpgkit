@@ -26,12 +26,12 @@ namespace sequence
             InInfiniteLoop = InfiniteLoop;
             NumberOfLoopsLeft = NumberOfLoops;
         }
-        protected override void CustomPlaySequence(Vector3 position, float attenuation = 1.0f)
+        protected override IEnumerator CustomPlaySequence(Vector3 position, float attenuation = 1.0f)
         {
-            if (Active)
+            if (Config.Active)
             {
                 NumberOfLoopsLeft--;
-                StartCoroutine(PlayPause());
+                yield return StartCoroutine(PlayPause());
             }
         }
         protected override void CustomReset()

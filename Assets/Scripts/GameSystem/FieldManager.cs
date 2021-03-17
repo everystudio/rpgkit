@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Cinemachine;
+using sequence;
 
 namespace rpgkit {
     public class FieldManager : Singleton<FieldManager>
@@ -25,8 +26,22 @@ namespace rpgkit {
                 FieldUnitSearcher fus = m_unitCore.GetComponent<FieldUnitSearcher>();
                 TalkBase tb = fus.m_talkTarget;
                 ChestBase cb = fus.m_chestTarget;
+                SequencePlayer sp = fus.m_sequencePlayer;
+                
                 //Debug.Log(tb);
-                if (tb != null)
+                if( sp != null)
+                {
+                    m_btnAction.gameObject.SetActive(false);
+                    m_btnMenu.gameObject.SetActive(false);
+                    m_unitCore.GetComponent<FieldUnitMover>().enabled = false;
+                    StartCoroutine(sp.PlaySequences(() =>
+                    {
+                        m_unitCore.GetComponent<FieldUnitMover>().enabled = true;
+                        m_btnAction.gameObject.SetActive(true);
+                        m_btnMenu.gameObject.SetActive(true);
+                    }));
+                }
+                else if (tb != null)
                 {
                     m_btnAction.gameObject.SetActive(false);
                     m_btnMenu.gameObject.SetActive(false);

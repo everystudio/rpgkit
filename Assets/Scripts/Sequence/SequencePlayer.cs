@@ -61,10 +61,10 @@ namespace sequence
 
         public virtual IEnumerator PlaySequences(Action _onFinished)
         {
-            yield return PlayFeedbacksInternal(this.transform.position, 1.0f , _onFinished);
+            yield return PlaySequencesInternal(this.transform.position, 1.0f , _onFinished);
         }
 
-        protected virtual IEnumerator PlayFeedbacksInternal(Vector3 position, float attenuation, Action _onFinished)
+        protected virtual IEnumerator PlaySequencesInternal(Vector3 position, float attenuation, Action _onFinished)
         {
             if (!this.isActiveAndEnabled)
             {
@@ -99,13 +99,13 @@ namespace sequence
             }
             else
             {
-                StartCoroutine(PausedFeedbacksCo(position, attenuation));
+                StartCoroutine(PausedSequencesCo(position, attenuation));
             }
             // とりあえず
             _onFinished.Invoke();
         }
 
-        protected virtual IEnumerator PausedFeedbacksCo(Vector3 position, float attenuation)
+        protected virtual IEnumerator PausedSequencesCo(Vector3 position, float attenuation)
         {
             IsPlaying = true;
             for (int i = 0; i < Sequences.Count; i++)
@@ -149,8 +149,8 @@ namespace sequence
                 {
                     if (Sequences[i].Pause == null)
                     {
-                        float feedbackDuration = Sequences[i].SequenceDuration + Sequences[i].Timing.InitialDelay + Sequences[i].Timing.NumberOfRepeats * (Sequences[i].SequenceDuration + Sequences[i].Timing.DelayBetweenRepeats);
-                        _holdingMax = Mathf.Max(feedbackDuration, _holdingMax);
+                        float sequenceDuration = Sequences[i].SequenceDuration + Sequences[i].Timing.InitialDelay + Sequences[i].Timing.NumberOfRepeats * (Sequences[i].SequenceDuration + Sequences[i].Timing.DelayBetweenRepeats);
+                        _holdingMax = Mathf.Max(sequenceDuration, _holdingMax);
                     }
                 }
 

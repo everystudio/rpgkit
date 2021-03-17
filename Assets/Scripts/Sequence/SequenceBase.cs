@@ -103,7 +103,7 @@ namespace sequence
 
             if (!_initialized)
             {
-                Debug.LogWarning("The " + this + " feedback is being played without having been initialized. Call Initialization() first.");
+                Debug.LogWarning("The " + this + " sequence is being played without having been initialized. Call Initialization() first.");
             }
 
             // we check the cooldown

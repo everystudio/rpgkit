@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using sequence;
 
 namespace rpgkit
 {
 	public class FieldUnitSearcher : MonoBehaviour
 	{
+		public SequencePlayer m_sequencePlayer;
 		public TalkBase m_talkTarget;
 		public ChestBase m_chestTarget;
 		private void Update()
@@ -19,6 +21,7 @@ namespace rpgkit
 
 			if (raycastHit2D.collider != null)
 			{
+				m_sequencePlayer = raycastHit2D.collider.gameObject.GetComponent<SequencePlayer>();
 				m_talkTarget = raycastHit2D.collider.gameObject.GetComponent<TalkBase>();
 				m_chestTarget = raycastHit2D.collider.gameObject.GetComponent<ChestBase>();
 			}

@@ -262,6 +262,80 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &137993720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 137993723}
+  - component: {fileID: 137993721}
+  - component: {fileID: 137993722}
+  m_Layer: 12
+  m_Name: falsetalk
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &137993721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137993720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86a15427837270649931d60498773637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sequences:
+  - {fileID: 137993722}
+  InitializationMode: 2
+  SafeMode: 3
+  AutoPlayOnStart: 0
+--- !u!114 &137993722
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137993720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8eedb232e938774a956e327390b0c04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Label: Talk
+  Config:
+    Active: 1
+    Chance: 100
+  Timing:
+    TimescaleMode: 0
+    InitialDelay: 0
+    CooldownDuration: 0
+    NumberOfRepeats: 0
+    RepeatForever: 0
+    DelayBetweenRepeats: 1
+  message:
+  - "\u30D5\u30E9\u30B0\u7ACB\u3061\u307E\u3057\u305F"
+--- !u!4 &137993723
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137993720}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1908579151}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &161368023
 GameObject:
   m_ObjectHideFlags: 0
@@ -18910,6 +18984,107 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1398978910}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1388728156
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1388728160}
+  - component: {fileID: 1388728157}
+  - component: {fileID: 1388728159}
+  - component: {fileID: 1388728158}
+  m_Layer: 12
+  m_Name: truetalk
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1388728157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388728156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86a15427837270649931d60498773637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sequences:
+  - {fileID: 1388728159}
+  - {fileID: 1388728158}
+  InitializationMode: 2
+  SafeMode: 3
+  AutoPlayOnStart: 0
+--- !u!114 &1388728158
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388728156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab62f739d189a2348bad7b4c628be054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Label: FlagSetter
+  Config:
+    Active: 1
+    Chance: 100
+  Timing:
+    TimescaleMode: 0
+    InitialDelay: 0
+    CooldownDuration: 0
+    NumberOfRepeats: 0
+    RepeatForever: 0
+    DelayBetweenRepeats: 1
+  flag_id: 6
+  is_completed: 1
+--- !u!114 &1388728159
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388728156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8eedb232e938774a956e327390b0c04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Label: Talk
+  Config:
+    Active: 1
+    Chance: 100
+  Timing:
+    TimescaleMode: 0
+    InitialDelay: 0
+    CooldownDuration: 0
+    NumberOfRepeats: 0
+    RepeatForever: 0
+    DelayBetweenRepeats: 1
+  message:
+  - "\u521D\u56DE\u306E\u558B\u308A\u7528\u3067\u3059"
+--- !u!4 &1388728160
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388728156}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1908579151}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1398978910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19031,7 +19206,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2, y: 1}
+    m_SensorSize: {x: 1.7774799, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -19228,9 +19403,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1908579151}
+  - component: {fileID: 1908579148}
   - component: {fileID: 1908579150}
   - component: {fileID: 1908579149}
-  - component: {fileID: 1908579148}
   - component: {fileID: 1908579147}
   m_Layer: 12
   m_Name: people5_00 (1)
@@ -19241,18 +19416,30 @@ GameObject:
   m_IsActive: 1
 --- !u!114 &1908579147
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1908579146}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21861b90a31e4334ab07c22f75abda5c, type: 3}
+  m_Script: {fileID: 11500000, guid: fd325eb4e36033344886a1d40f3d6100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag_id: 1
-  is_active: 0
+  Label: SwichEventSequence
+  Config:
+    Active: 1
+    Chance: 100
+  Timing:
+    TimescaleMode: 0
+    InitialDelay: 0
+    CooldownDuration: 0
+    NumberOfRepeats: 0
+    RepeatForever: 0
+    DelayBetweenRepeats: 1
+  flag_id: 6
+  m_subSequenceTrue: {fileID: 137993721}
+  m_subSequenceFalse: {fileID: 1388728157}
 --- !u!114 &1908579148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19262,12 +19449,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1908579146}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6c7d6e3133f18b42b6468e482a84bc2, type: 3}
+  m_Script: {fileID: 11500000, guid: 86a15427837270649931d60498773637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message:
-  - "\u306F\u306A\u3057\u3092\u3059\u308B2"
-  - 2
+  Sequences:
+  - {fileID: 1908579147}
+  InitializationMode: 2
+  SafeMode: 3
+  AutoPlayOnStart: 0
 --- !u!61 &1908579149
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19354,7 +19543,9 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 3.96, y: 1.17, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 137993723}
+  - {fileID: 1388728160}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

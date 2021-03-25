@@ -2,8 +2,7 @@
 using System.Collections;
 using UnityEngine.Events;
 
-[AddComponentMenu("Events/FloatEventListener")]
-public class FloatEventListener : ScriptableEventListener<float>
+public class EventFloatListener : ScriptableEventListener<float>
 {
     [SerializeField]
     protected EventFloat eventObject;

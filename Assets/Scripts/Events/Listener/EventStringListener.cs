@@ -2,7 +2,6 @@
 using System.Collections;
 using UnityEngine.Events;
 
-[AddComponentMenu("Events/EventStringListener")]
 public class EventStringListener : ScriptableEventListener<string>
 {
     [SerializeField]

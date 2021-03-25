@@ -47,7 +47,11 @@ namespace rpgkit
 
         private void Warp(TeleportLocation location)
         {
-            StartCoroutine(SwitchScene(location.Scene, currentScene, location.Position));
+            onTeleportStart?.Invoke(sceneWarpTime * 0.5f);
+            FadeScreen.Instance.Fadeout(1.0f, () =>
+            {
+                StartCoroutine(SwitchScene(location.Scene, currentScene, location.Position));
+            });
         }
 
         private IEnumerator SwitchScene(string target, string previous, Vector3 playerLocation)
@@ -65,7 +69,6 @@ namespace rpgkit
                 yield break;
             }
 
-            onTeleportStart?.Invoke(sceneWarpTime * 0.5f);
             yield return new WaitForSeconds(sceneWarpTime * 0.5f);
 
             AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(target, LoadSceneMode.Additive);
@@ -92,9 +95,11 @@ namespace rpgkit
 
             yield return new WaitUntil(() => unloadPreviousScene.isDone);
 
-            onTeleportEnd?.Invoke(sceneWarpTime * 0.5f);
-
-            OnSceneTeleport?.Invoke(target);
+            FadeScreen.Instance.Fadein(1.0f, () =>
+            {
+                onTeleportEnd?.Invoke(sceneWarpTime * 0.5f);
+                OnSceneTeleport?.Invoke(target);
+            });
         }
 
         [System.Serializable]

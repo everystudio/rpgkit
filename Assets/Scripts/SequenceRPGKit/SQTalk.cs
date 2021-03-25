@@ -5,6 +5,8 @@ using sequence;
 
 namespace rpgkit
 {
+    [AddComponentMenu("")]
+    [SequencePath("rpgkit/Talk")]
     public class SQTalk : SequenceBase
     {
         public List<string> message;

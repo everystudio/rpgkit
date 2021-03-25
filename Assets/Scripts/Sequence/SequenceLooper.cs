@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace sequence
 {
+    [AddComponentMenu("")]
     public class SequenceLooper : SequencePause
     {
         [Header("Loop conditions")]

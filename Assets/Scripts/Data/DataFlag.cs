@@ -17,6 +17,21 @@ namespace rpgkit
             DataFlagParam flag = list.Find(p => p.flag_id == _iFlagId);
             return flag != null ? flag.is_completed : false;
         }
+        public void Write( int _iFlagId , bool _bIsCompleted)
+        {
+            DataFlagParam flag = list.Find(p => p.flag_id == _iFlagId);
+            if( flag == null)
+            {
+                flag = new DataFlagParam();
+                flag.flag_id = _iFlagId;
+                flag.is_completed = _bIsCompleted;
+                list.Add(flag);
+            }
+            else
+            {
+                flag.is_completed = _bIsCompleted;
+            }
+        }
     }
 
 }

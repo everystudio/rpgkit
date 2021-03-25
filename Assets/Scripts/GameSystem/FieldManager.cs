@@ -126,7 +126,12 @@ namespace rpgkit {
             vcam.Follow = m_unitCore.transform;
             m_vcamMain = vcam;
         }
-
+        public void UnitFreeze(bool _bIsFreeze)
+        {
+            m_btnAction.gameObject.SetActive(!_bIsFreeze);
+            m_btnMenu.gameObject.SetActive(!_bIsFreeze);
+            m_unitCore.GetComponent<FieldUnitMover>().enabled = !_bIsFreeze;
+        }
 
     }
 

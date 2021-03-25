@@ -5,10 +5,6 @@ using UnityEngine;
 
 namespace sequence
 {
-    public class SequenceHelper : MonoBehaviour
-    {
-    }
-
     [System.AttributeUsage(System.AttributeTargets.Class, AllowMultiple = false, Inherited = false)]
     public class SequencePathAttribute : System.Attribute
     {

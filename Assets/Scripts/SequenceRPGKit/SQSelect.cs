@@ -5,6 +5,8 @@ using sequence;
 
 namespace rpgkit
 {
+    [AddComponentMenu("")]
+    [SequencePath("rpgkit/Select")]
     public class SQSelect : SequenceBase
     {
         [SerializeField]

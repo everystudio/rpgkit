@@ -19,8 +19,9 @@ namespace rpgkit {
         public CinemachineVirtualCamera m_vcamMain;
         public Room m_roomCurrent;
 
-        private void Awake()
+        public override void Initialize()
         {
+            base.Initialize();
             m_btnAction.onClick.AddListener(() =>
             {
                 FieldUnitSearcher fus = m_unitCore.GetComponent<FieldUnitSearcher>();
@@ -128,6 +129,7 @@ namespace rpgkit {
         }
         public void UnitFreeze(bool _bIsFreeze)
         {
+            Debug.Log($"UnitFreeze({_bIsFreeze})");
             m_btnAction.gameObject.SetActive(!_bIsFreeze);
             m_btnMenu.gameObject.SetActive(!_bIsFreeze);
             m_unitCore.GetComponent<FieldUnitMover>().enabled = !_bIsFreeze;

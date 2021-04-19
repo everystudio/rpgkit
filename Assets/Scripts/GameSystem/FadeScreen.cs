@@ -15,7 +15,10 @@ namespace rpgkit
         public void Fadeout(float _fDuration, Action _onFinished)
         {
             m_imgScreen.DOFade(1.0f, _fDuration)
-                .OnComplete(() => { _onFinished.Invoke(); });
+                .OnComplete(() => {
+                    Debug.Log("aaa");
+                    _onFinished.Invoke();
+                });
         }
         public void Fadein(float _fDuration, Action _onFinished)
         {

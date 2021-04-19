@@ -10,6 +10,7 @@ namespace rpgkit
 		public Vector2 m_ExitOffset;
 		public Portal m_portalTarget;
 		private Room m_roomExist;
+
 		public Room RoomExist
 		{
 			get { return m_roomExist; }
@@ -37,13 +38,23 @@ namespace rpgkit
 		{
 			if (collision.tag == "Player")
 			{
-				collision.gameObject.transform.position =
-					m_portalTarget.transform.position + new Vector3(
-						m_portalTarget.m_ExitOffset.x,
-						m_portalTarget.m_ExitOffset.y, 0.0f);
+				FadeScreen.Instance.Fadeout(0.3f, () =>
+				{
+					FieldManager.Instance.UnitFreeze(true);
 
-				m_roomExist.Exit();
-				m_portalTarget.RoomExist.Enter(collision.transform);
+					collision.gameObject.transform.position =
+						m_portalTarget.transform.position + new Vector3(
+							m_portalTarget.m_ExitOffset.x,
+							m_portalTarget.m_ExitOffset.y, 0.0f);
+
+					m_roomExist.Exit();
+					m_portalTarget.RoomExist.Enter(collision.transform);
+
+					FadeScreen.Instance.Fadein(0.3f, () =>
+					{
+						FieldManager.Instance.UnitFreeze(false);
+					});
+				});
 				//m_portalTarget.RoomExist.m_vcam.Follow = collision.gameObject.transform;
 			}
 		}

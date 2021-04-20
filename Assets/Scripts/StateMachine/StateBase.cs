@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class StateBase<T>
+public abstract class StateBase<T> where T : StateMachineBase<T>
 {
-	protected StateMachineBase<T> machine;
-	public StateBase(StateMachineBase<T> _machine)
+	protected T machine;
+	public StateBase(T _machine)
 	{
 		machine = _machine;
 	}

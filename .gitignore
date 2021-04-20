@@ -39,6 +39,8 @@ temp_c/*
 
 Assets/02texture/assetstore/*
 Assets/02texture/assetstore.meta
+Assets/Scripts/Test/*
+Assets/Scripts/Test/.meta
 
 Assets/Energy Bar Toolkit/Example/*
 Assets/Energy Bar Toolkit/Example.meta

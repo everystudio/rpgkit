@@ -73,7 +73,7 @@ namespace rpgkit
 
 		public void OnLoad(string data)
 		{
-			//Debug.Log("ChestBase.OnLoad");
+			Debug.Log("ChestBase.OnLoad");
 			SaveData saveData = JsonUtility.FromJson<SaveData>(data);
 			m_guid = saveData.guid;
 			m_bIsOpen = saveData.is_open;

@@ -10,6 +10,12 @@ public abstract class StateMachineBase<T> : MonoBehaviour where T : StateMachine
 	public UnityEvent OnBegin = new UnityEvent();
 	public UnityEvent OnEnd = new UnityEvent();
 
+	protected virtual void OnUpdatePrev() { }
+	protected virtual void OnUpdateAfter() { }
+
+	protected virtual void OnFixedUpdatePrev() { }
+	protected virtual void OnFixedUpdateAfter() { }
+
 	public void SetState(StateBase<T> _state)
 	{
 		if (stateCurrent != null)
@@ -21,10 +27,22 @@ public abstract class StateMachineBase<T> : MonoBehaviour where T : StateMachine
 	}
 	private void Update()
 	{
+		OnUpdatePrev();
 		if (stateCurrent != null)
 		{
 			stateCurrent.OnUpdateState();
 		}
+		OnUpdateAfter();
+	}
+
+	private void FixedUpdate()
+	{
+		OnFixedUpdatePrev();
+		if (stateCurrent != null)
+		{
+			stateCurrent.OnFixedUpdateState();
+		}
+		OnFixedUpdateAfter();
 	}
 
 }

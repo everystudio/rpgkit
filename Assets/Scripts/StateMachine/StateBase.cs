@@ -16,6 +16,9 @@ public abstract class StateBase<T> where T : StateMachineBase<T>
 	public virtual void OnUpdateState()
 	{
 	}
+	public virtual void OnFixedUpdateState()
+	{
+	}
 	public virtual void OnExitState()
 	{
 	}

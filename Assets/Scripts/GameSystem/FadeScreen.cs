@@ -16,7 +16,6 @@ namespace rpgkit
         {
             m_imgScreen.DOFade(1.0f, _fDuration)
                 .OnComplete(() => {
-                    Debug.Log("aaa");
                     _onFinished.Invoke();
                 });
         }

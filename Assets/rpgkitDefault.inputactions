@@ -1,0 +1,79 @@
+{
+    "name": "rpgkitDefault",
+    "maps": [
+        {
+            "name": "New action map",
+            "id": "4785d601-7e1c-4420-b622-db79f0942013",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "e28cfb3d-7d21-42bf-a1ec-655452be7893",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "bc1eb086-5961-4d01-8fd1-4874df630aee",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Battle",
+            "id": "ba51fb5c-394b-41b7-9e2c-96287caab35f",
+            "actions": [
+                {
+                    "name": "fight",
+                    "type": "Button",
+                    "id": "993f73a3-3ea7-4e86-b26e-0f2a39b27ecc",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "skill",
+                    "type": "Button",
+                    "id": "6fade317-7fc0-4788-b4f8-bc900a34e898",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4192d609-0184-43d1-8291-9f6c4e86280b",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "fight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2e6e38a9-dc93-4f93-bd1f-7a3809988efd",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "skill",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

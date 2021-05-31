@@ -4564,6 +4564,7 @@ GameObject:
   - component: {fileID: 225313110}
   - component: {fileID: 225313109}
   - component: {fileID: 225313108}
+  - component: {fileID: 225313111}
   m_Layer: 5
   m_Name: BattleCardUnit
   m_TagString: Untagged
@@ -4656,6 +4657,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 225313106}
   m_CullTransparentMesh: 0
+--- !u!114 &225313111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225313106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac813504e3d291b4183b5485f9bbc48e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_txtName: {fileID: 1769892345}
+  m_txtLevel: {fileID: 0}
+  m_txtHPCurrent: {fileID: 728172326}
+  m_txtHPMax: {fileID: 74706238}
+  m_txtTPCurrent: {fileID: 2076131178}
+  m_txtTPMax: {fileID: 1215008280}
+  m_imgIcon: {fileID: 0}
+  m_btn: {fileID: 0}
 --- !u!1 &225675070
 GameObject:
   m_ObjectHideFlags: 0
@@ -10595,7 +10616,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -58.2, y: 78.8, z: -0.5}
+  m_LocalPosition: {x: -12.5, y: 149.3, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -14083,7 +14104,7 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Input Debug Battle Start
       m_Flags: 0
-  m_battleHUD: {fileID: 0}
+  m_battleHUD: {fileID: 1312923004}
 --- !u!1 &699998036
 GameObject:
   m_ObjectHideFlags: 0
@@ -25723,6 +25744,8 @@ MonoBehaviour:
   m_btnSkill: {fileID: 857106089}
   m_btnItem: {fileID: 416268488}
   m_btnBack: {fileID: 2077399077}
+  m_goRootPartyCard: {fileID: 0}
+  m_prefPartyCard: {fileID: 0}
 --- !u!1 &1327067423
 GameObject:
   m_ObjectHideFlags: 0

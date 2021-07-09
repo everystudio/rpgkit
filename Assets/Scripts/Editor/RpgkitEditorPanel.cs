@@ -88,7 +88,7 @@ namespace rpgkit
 
 			if (DrawTabButton("UI"))
 			{
-				editor = CreateInstance<UIAssistantEditor>();
+				//editor = CreateInstance<UIAssistantEditor>();
 				editorRender = editor.OnInspectorGUI;
 			}
 			if (DrawTabButton("DataManager-Flag"))

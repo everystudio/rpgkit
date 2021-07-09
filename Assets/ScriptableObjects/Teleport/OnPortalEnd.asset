@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbe99e2149d9345418ca71e401e0e99b, type: 3}
+  m_Script: {fileID: 11500000, guid: 3217c64b89cb8734bb0f092c6e750302, type: 3}
   m_Name: OnPortalEnd
   m_EditorClassIdentifier: 
   dispatchLastStateOnAdd: 0

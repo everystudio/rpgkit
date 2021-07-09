@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Cinemachine;
-using sequence;
+using anogamelib;
 using UnityEngine.InputSystem;
+using anogamelib;
 
 namespace rpgkit {
     public class FieldManager : Singleton<FieldManager>

@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 #endif
+using anogamelib;
 
 namespace rpgkit
 {

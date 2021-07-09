@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f968297db3b58ea4a85849e428360938, type: 3}
+  m_Script: {fileID: 11500000, guid: d858c817aa388ce4d9999e910591f362, type: 3}
   m_Name: OnTeleportStart
   m_EditorClassIdentifier: 
   dispatchLastStateOnAdd: 0

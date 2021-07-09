@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using rpgkit;
+using anogamelib;
+
 public class BattleMain : StateMachineBase<BattleMain>
 {
 	[SerializeField] private GameObject m_goRootBattleLog;

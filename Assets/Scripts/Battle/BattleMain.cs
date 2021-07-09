@@ -13,6 +13,15 @@ public class BattleMain : StateMachineBase<BattleMain>
 	[SerializeField] private InputAction m_inputDebugBattleStart;
 	[SerializeField] private BattleHUD m_battleHUD;
 
+	#region
+	[SerializeField] private TextAsset m_taMasterUnit;
+	public MasterUnit masterUnit = new MasterUnit();
+
+	[SerializeField] private TextAsset m_taDataUnit;	// テスト用
+	public DataUnit dataUnitParty = new DataUnit();
+	#endregion
+
+
 	private int m_iPlayerCommandIndex;
 	public struct BattleCommand
 	{
@@ -21,7 +30,7 @@ public class BattleMain : StateMachineBase<BattleMain>
 	}
 	private List<BattleCommand> m_battleCommandList = new List<BattleCommand>();
 	
-	public void ClearBattleLog()
+	public void ClearBattleInfo()
 	{
 		m_prefBattleLog.SetActive(false);
 		foreach( Transform tf in m_goRootBattleLog.transform.GetComponentsInChildren<Transform>())
@@ -29,11 +38,18 @@ public class BattleMain : StateMachineBase<BattleMain>
 			//Debug.Log(tf.name);
 			Destroy(tf.gameObject);
 		}
+		m_battleHUD.Setup();
 	}
 
 	private void Start()
 	{
 		SetState(new BattleMain.Standby(this));
+	}
+
+	public void DataSetup()
+	{
+		masterUnit.Load(m_taMasterUnit);
+		dataUnitParty.Load(m_taDataUnit);
 	}
 	private void OnEnable()
 	{
@@ -48,6 +64,7 @@ public class BattleMain : StateMachineBase<BattleMain>
 	{
 		public Standby(BattleMain _machine) : base(_machine)
 		{
+			machine.DataSetup();
 			Debug.Log("Standby");
 		}
 		public override void OnEnterState()
@@ -72,7 +89,10 @@ public class BattleMain : StateMachineBase<BattleMain>
 		public Opening(BattleMain _machine) : base(_machine)
 		{
 			Debug.Log("Opening");
-			machine.ClearBattleLog();
+			machine.ClearBattleInfo();
+
+			machine.m_battleHUD.ShowParty(machine.masterUnit.list, machine.dataUnitParty.list);
+
 			UIAssistant.Instance.ShowPage("Battle");
 		}
 		public override void OnEnterState()
@@ -221,7 +241,7 @@ public class BattleMain : StateMachineBase<BattleMain>
 		{
 			base.OnEnterState();
 
-			if( DataManager.Instance.m_dataUnit.list.Count <= machine.m_iPlayerCommandIndex)
+			if( machine.dataUnitParty.list.Count <= machine.m_iPlayerCommandIndex)
 			{
 				machine.SetState(new BattleMain.CommandEnd(machine));
 			}

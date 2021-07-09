@@ -40,21 +40,31 @@ namespace rpgkit
             GetComponent<Image>().color = _bIsSelect ? new Color(0.5f, 1.0f, 1.0f) : Color.white;
         }
 
-        public void Initialize(DataUnitParam _unit)
+        public void Initialize(DataUnitParam _unit , MasterUnitParam _master = null)
         {
             m_dataUnit = _unit;
-            m_masterUnitParam = DataManager.Instance.m_masterUnit.list.Find(p => p.unit_id==_unit.unit_id);
+            if( _master == null)
+            {
+                m_masterUnitParam = DataManager.Instance.m_masterUnit.list.Find(p => p.unit_id == _unit.unit_id);
+            }
+            else
+            {
+                m_masterUnitParam = _master;
+            }
             if ( m_btn == null)
             {
                 m_btn = GetComponent<Button>();
-                m_btn.onClick.AddListener(() =>
-                {
-                    m_onDataUnitParam.Invoke(m_dataUnit);
-                });
             }
+            m_btn.onClick.AddListener(() =>
+            {
+                m_onDataUnitParam.Invoke(m_dataUnit);
+            });
             m_txtName.text = m_masterUnitParam.unit_name;
             RefreshParam();
-            m_imgIcon.sprite = m_masterUnitParam.so_unit_data.unit_left;
+            if (m_imgIcon != null)
+            {
+                m_imgIcon.sprite = m_masterUnitParam.so_unit_data.unit_left;
+            }
         }
         public void RefreshParam()
         {

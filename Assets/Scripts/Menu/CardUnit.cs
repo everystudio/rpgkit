@@ -27,6 +27,8 @@ namespace rpgkit
         private DataUnitParam m_dataUnit;
         private MasterUnitParam m_masterUnitParam;
 
+        public GameObject m_goPosition;
+
         public bool IsUnit( DataUnitParam _unitParam)
         {
             return m_dataUnit == _unitParam;
@@ -73,6 +75,15 @@ namespace rpgkit
             m_txtHPMax.text = m_dataUnit.hp.ToString();
             m_txtTPCurrent.text = m_dataUnit.tp_current.ToString();
             m_txtTPMax.text = m_dataUnit.tp.ToString();
+        }
+
+        public void SetPosition()
+        {
+            if(m_goPosition != null)
+            {
+                m_goPosition.GetComponent<RectTransform>().anchoredPosition = 
+                    new Vector2(0.0f, 20 * m_dataUnit.position);
+            }
         }
 
     }

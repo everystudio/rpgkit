@@ -15,12 +15,25 @@ public class BattleHUD : MonoBehaviour
 	public GameObject m_goRootPartyCard;
 	public GameObject m_prefPartyCard;
 
+	public Transform m_tfSelectChara;
+	public Transform m_tfBottomStatus;
+	public Transform m_tfSelectCommand;
+	public Transform m_tfLogRoot;
+
 	public List<CardUnit> cardUnitList = new List<CardUnit>();
 
 	internal void Setup()
 	{
 		m_prefPartyCard.SetActive(false);
 		cardUnitList.Clear();
+
+		Debug.Log(m_tfSelectCommand.GetComponent<RectTransform>().anchoredPosition);
+
+		m_tfSelectChara.GetComponent<RectTransform>().anchoredPosition = new Vector2(-960, 60);
+
+		m_tfLogRoot.GetComponent<RectTransform>().anchoredPosition = new Vector2(-800 + 30, -6);
+
+
 	}
 
 	public void ShowParty(List<MasterUnitParam> _masterList, List<DataUnitParam> _list)
@@ -34,6 +47,7 @@ public class BattleHUD : MonoBehaviour
 			MasterUnitParam master = _masterList.Find(p => p.unit_id == param.unit_id);
 
 			card.Initialize(param, master);
+			card.SetPosition();
 			cardUnitList.Add(card);
 		}
 	}

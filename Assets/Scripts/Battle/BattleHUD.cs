@@ -4,9 +4,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class BattleHUD : MonoBehaviour
 {
+	private readonly float MoveTime = 0.25f;
+	private readonly float MoveDelta = 800;
+
 	public Button m_btnAttack;
 	public Button m_btnSkill;
 	public Button m_btnItem;
@@ -27,13 +31,12 @@ public class BattleHUD : MonoBehaviour
 		m_prefPartyCard.SetActive(false);
 		cardUnitList.Clear();
 
-		Debug.Log(m_tfSelectCommand.GetComponent<RectTransform>().anchoredPosition);
+		//Debug.Log(m_tfBottomStatus.GetComponent<RectTransform>().anchoredPosition);
 
-		m_tfSelectChara.GetComponent<RectTransform>().anchoredPosition = new Vector2(-960, 60);
-
-		m_tfLogRoot.GetComponent<RectTransform>().anchoredPosition = new Vector2(-800 + 30, -6);
-
-
+		m_tfSelectChara.GetComponent<RectTransform>().anchoredPosition = new Vector2(-160-MoveDelta, 60);
+		m_tfLogRoot.GetComponent<RectTransform>().anchoredPosition = new Vector2(30-MoveDelta, -6);
+		m_tfSelectCommand.GetComponent<RectTransform>().anchoredPosition = new Vector2(-30 + MoveDelta, 0);
+		m_tfBottomStatus.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -1 * MoveDelta);
 	}
 
 	public void ShowParty(List<MasterUnitParam> _masterList, List<DataUnitParam> _list)
@@ -50,5 +53,14 @@ public class BattleHUD : MonoBehaviour
 			card.SetPosition();
 			cardUnitList.Add(card);
 		}
+	}
+
+	public void AnimIntro()
+	{
+		m_tfSelectChara.DOLocalMoveX(MoveDelta, MoveTime).SetRelative(true);
+//		m_tfLogRoot.GetComponent<RectTransform>().anchoredPosition = new Vector2(-800 + 30, -6);
+		m_tfSelectCommand.DOLocalMoveX(-MoveDelta, MoveTime).SetRelative(true);
+		m_tfBottomStatus.DOLocalMoveY(MoveDelta, MoveTime).SetRelative(true);
+
 	}
 }

@@ -71,6 +71,9 @@ public class BattleMain : StateMachineBase<BattleMain>
 		{
 			base.OnEnterState();
 			machine.m_inputDebugBattleStart.performed += M_inputDebugBattleStart_performed;
+
+			machine.ClearBattleInfo();
+			machine.m_battleHUD.ShowParty(machine.masterUnit.list, machine.dataUnitParty.list);
 		}
 
 		public override void OnExitState()
@@ -89,9 +92,7 @@ public class BattleMain : StateMachineBase<BattleMain>
 		public Opening(BattleMain _machine) : base(_machine)
 		{
 			Debug.Log("Opening");
-			machine.ClearBattleInfo();
-
-			machine.m_battleHUD.ShowParty(machine.masterUnit.list, machine.dataUnitParty.list);
+			machine.m_battleHUD.AnimIntro();
 
 			UIAssistant.Instance.ShowPage("Battle");
 		}
